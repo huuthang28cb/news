@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('admin.layouts.admin');
+Route::get('/', function () {
+    return view('home');
+});
+
+// CATEGORIES ROUTE
+Route::prefix('categories')->group(function() {
 });

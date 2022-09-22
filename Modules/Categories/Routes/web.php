@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,20 @@
 */
 
 Route::prefix('categories')->group(function() {
-    Route::get('/', 'CategoriesController@index');
+    Route::get('/', [
+        'as' => 'categories.index',
+        'uses' => 'CategoriesController@index',
+    ]);
+    Route::get('/create', [
+        'as' => 'categories.create',
+        'uses' => 'CategoriesController@create',
+    ]);
+    Route::post('/store', [
+        'as' => 'categories.store',
+        'uses' => 'CategoriesController@store',
+    ]);
+    Route::get('/edit/{id}', [
+        'as' => 'categories.edit',
+        'uses' => 'CategoriesController@edit',
+    ]);
 });

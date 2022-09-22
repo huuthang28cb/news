@@ -11,7 +11,7 @@
     </div>
     <div class="profile_info">
         <span>Welcome,</span>
-        <h2>John Doe</h2>
+        <h2>Admin</h2>
     </div>
 </div>
 <!-- /menu profile quick info -->
@@ -24,14 +24,34 @@
         <h3></h3>
         <ul class="nav side-menu">
             <li>
-                <a> {{-- href="{{route('')}}" class="nav-link" --}}
+                <a href="/" class="nav-link">
                     <i class="fa fa-home">
                     </i> Home </span>
                 </a>
             </li>
-            <li><a><i class="fa fa-home"></i> Posts </span></a>   
+        
+            <li>
+                <a href="{{route('categories.index')}}" class="nav-link">
+                    <i class="fa fa-tasks"></i> Categories </span>
+                </a>   
             </li>
-            <li><a><i class="fa fa-home"></i> Categories </span></a>   
+
+            <li>
+                <a>
+                    <i class="fa fa-cube"></i> Topics </span>
+                </a>   
+            </li>
+
+            <li>
+                <a>
+                    <i class="fa fa-paste"></i></i> Posts </span>
+                </a>   
+            </li>
+
+            <li>
+                <a>
+                    <i class="fa fa-users"></i> Users </span>
+                </a>   
             </li>
         
         </ul>

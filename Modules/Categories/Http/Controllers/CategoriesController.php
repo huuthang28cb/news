@@ -1,20 +1,31 @@
 <?php
 
 namespace Modules\Categories\Http\Controllers;
+use Modules\Categories\Http\Requests\CategoriesAddRequest;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Models\Categories;
+
 
 class CategoriesController extends Controller
 {
+
+    private $categories;
+    public function __construct(Categories $categories)
+    {
+        $this->categories=$categories;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        return view('categories::index');
+        $dataCategories = $this->categories->latest()->paginate(10);
+        return view('categories::index', compact('dataCategories'));
     }
 
     /**
@@ -31,9 +42,14 @@ class CategoriesController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
+    public function store(CategoriesAddRequest $request)
     {
-        //
+        // call model and create
+        $this->categories->create([
+            'name'=>$request->name,
+            'enable'=>$request->enable,
+        ]);
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -53,7 +69,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        return view('categories::edit');
+        $dataCategories = $this->categories->find($id);
+        return view('categories::edit', compact('dataCategories'));
     }
 
     /**
@@ -64,7 +81,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

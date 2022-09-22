@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Admin | </title>
+    @yield('title')
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('admin_gentelella/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -71,7 +71,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
-          <h1>Đây là trang tổng quan</h1>
+          @yield('content')
         </div>
         
         <!-- /page content -->
