@@ -26,6 +26,7 @@
     <!-- bootstrap-daterangepicker -->
     <link rel="stylesheet" href="{{ asset('admin_gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css')}}">
 
+
     <!-- Custom Theme Style -->
     <link rel="stylesheet" href="{{ asset('admin_gentelella/build/css/custom.min.css')}}">
   </head>

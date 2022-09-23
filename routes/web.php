@@ -20,3 +20,7 @@ Route::get('/', function () {
 // CATEGORIES ROUTE
 Route::prefix('categories')->group(function() {
 });
+
+// TOPICS ROUTE
+Route::prefix('topics')->group(function() {
+});

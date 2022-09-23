@@ -30,4 +30,13 @@ Route::prefix('categories')->group(function() {
         'as' => 'categories.edit',
         'uses' => 'CategoriesController@edit',
     ]);
+    Route::post('/update/{id}', [
+        'as' => 'categories.update',
+        'uses' => 'CategoriesController@update',
+    ]);
+    Route::get('/destroy/{id}', [
+        'as' => 'categories.destroy',
+        'uses' => 'CategoriesController@destroy',
+    ]);
+    
 });

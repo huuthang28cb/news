@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a>
+                <a href="{{route('topics.index')}}" class="nav-link">
                     <i class="fa fa-cube"></i> Topics </span>
                 </a>   
             </li>

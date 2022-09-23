@@ -2,6 +2,7 @@
 
 namespace Modules\Categories\Http\Controllers;
 use Modules\Categories\Http\Requests\CategoriesAddRequest;
+use Modules\Categories\Http\Requests\CategoriesUpdateRequest;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -79,9 +80,13 @@ class CategoriesController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(CategoriesUpdateRequest $request, $id)
     {
-        
+        $this->categories->find($id)->update([
+            'name'=>$request->name,
+            'enable'=>$request->enable,
+        ]);
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -91,6 +96,7 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->categories->find($id)->delete();
+        return redirect()->route('categories.index');
     }
 }

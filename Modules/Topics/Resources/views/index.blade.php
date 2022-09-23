@@ -1,12 +1,12 @@
 @extends('admin.layouts.admin')
 @section('title')
-<title>Categories</title>
+<title>Topics</title>
 @endsection
 @section('content')
 
 <div class="mt-5 mr-3">
-    <a href="{{route('categories.create')}}">
-        <button type="button" class="btn btn-secondary float-right"><i class="fa fa-plus"></i></span> Add categories
+    <a href="{{ route('topics.create') }}">
+        <button type="button" class="btn btn-secondary float-right"><i class="fa fa-plus"></i></span> Add topics
         </button>
     </a>
 </div>
@@ -14,7 +14,7 @@
 <div class="col-md-12 col-sm-6 mt-5">
     <div class="x_panel">
         <div class="x_title">
-            <h2>Categories manager</h2>
+            <h2>Topics manager</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -37,29 +37,29 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Categories</th>
                         <th>Enable status</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dataCategories as $categories_items)
+                    @foreach ($dataTopics as $topic_items)
                         
                     <tr>
-                        <th scope="row">{{ $categories_items->id }}</th>
-                        <td>{{ $categories_items->name }}</td>
-                        
-                        @if ($categories_items->enable == 1)
+                        <th scope="row">{{ $topic_items->id }}</th>
+                        <td>{{ $topic_items->name }}</td>
+                        <td>{{optional($topic_items->categories)->name}}</td> {{-- gọi phương thức trên một đối tượng --}}
+                        @if ($topic_items->enable == 1)
                             <td>Enable</td>
                         @else
                             <td>Disable</td>
                         @endif
                         <td>
                             <a
-                                href="{{ route('categories.edit', ['id'=>$categories_items->id]) }}"
+                                href="{{ route('topics.edit', ['id'=>$topic_items->id]) }}"
                                 class="btn btn-primary "><i class="fa fa-edit"></i></a>
                             <a
-                                href="{{ route('categories.destroy', ['id'=>$categories_items->id]) }}"
-                                data-url=""
+                                href=""
                                 onclick="return confirm('Are you sure you want to delete this item?');"
                                 class="btn btn-danger action_delete "><i class="fa fa-trash"></i></a>
                         </td>
@@ -67,7 +67,7 @@
                     
                     @endforeach
                 </tbody>
-            </table>          
+            </table>       
         </div>
         {{-- <div class="col-md-6">
             <p>{{ $dataCategories->links() }}</p>
