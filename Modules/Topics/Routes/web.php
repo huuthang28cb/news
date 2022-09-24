@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('topics')->group(function() {
+Route::prefix('topics')->group(function () {
     Route::get('/', [
         'as' => 'topics.index',
         'uses' => 'TopicsController@index',
@@ -28,8 +29,12 @@ Route::prefix('topics')->group(function() {
         'as' => 'topics.edit',
         'uses' => 'TopicsController@edit',
     ]);
-    Route::get('/update/{id}', [
+    Route::post('/update/{id}', [
         'as' => 'topics.update',
         'uses' => 'TopicsController@update',
+    ]);
+    Route::get('/destroy/{id}', [
+        'as' => 'topics.destroy',
+        'uses' => 'TopicsController@destroy',
     ]);
 });

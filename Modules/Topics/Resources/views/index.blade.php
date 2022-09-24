@@ -59,7 +59,7 @@
                                 href="{{ route('topics.edit', ['id'=>$topic_items->id]) }}"
                                 class="btn btn-primary "><i class="fa fa-edit"></i></a>
                             <a
-                                href=""
+                                href="{{ route('topics.destroy', ['id'=>$topic_items->id]) }}"
                                 onclick="return confirm('Are you sure you want to delete this item?');"
                                 class="btn btn-danger action_delete "><i class="fa fa-trash"></i></a>
                         </td>

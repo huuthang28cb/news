@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Topics;
 use GuzzleHttp\Promise\Create;
 use Modules\Topics\Http\Requests\CreateTopicsRequest;
+use Modules\Topics\Http\Requests\UpdateTopicsRequest;
 use Illuminate\Support\Facades\Log;
 
 class TopicsController extends Controller
@@ -100,9 +101,14 @@ class TopicsController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(UpdateTopicsRequest $request, $id)
     {
-        //
+        $this->topics->find($id)->update([
+            'name' => $request->name,
+            'category_id'=> $request->category_id,
+            'enable' => $request->enable,
+        ]);
+        return redirect()->route('topics.index');
     }
 
     /**
@@ -112,6 +118,7 @@ class TopicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->topics->find($id)->delete();
+        return redirect()->route('topics.index');
     }
 }

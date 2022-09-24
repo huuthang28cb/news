@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 @section('title')
-    <title>Categories</title>
+    <title>Trang chủ</title>
 @endsection
 @section('content')
     {{-- <h1>This is home page manager</h1> --}}
