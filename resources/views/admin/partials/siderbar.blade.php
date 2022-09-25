@@ -43,7 +43,7 @@
             </li>
 
             <li>
-                <a>
+                <a href="{{route('posts.index')}}" class='nav-link'>
                     <i class="fa fa-paste"></i></i> Posts </span>
                 </a>   
             </li>

@@ -13,14 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
+
+Route::resource('admin', "AdminController@loginAdmin");
+//Route::post('/admin', "AdminController@postloginAdmin");
+
+Route::get('/home', function () {
     return view('home');
 });
 
-// CATEGORIES ROUTE
-Route::prefix('categories')->group(function() {
-});
+Route::prefix('admin')->group(function () {
 
-// TOPICS ROUTE
-Route::prefix('topics')->group(function() {
+    // CATEGORIES ROUTE
+    Route::prefix('categories')->group(function () {
+    });
+
+    // TOPICS ROUTE
+    Route::prefix('topics')->group(function () {
+    });
+
+    // POSTS ROUTE
+    Route::prefix('posts')->group(function () {
+    });
 });

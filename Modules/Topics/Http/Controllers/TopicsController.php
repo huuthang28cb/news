@@ -45,7 +45,7 @@ class TopicsController extends Controller
      */
     public function create()
     {
-        $htmlSelect = $this->getCategories($categoriesId = '');
+        $htmlSelect = $this->get($categoriesId = '');
         return view('topics::create', compact('htmlSelect'));
     }
 
