@@ -10,4 +10,8 @@ class Categories extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function posts(){
+        return $this->hasManyThrough('Posts', 'Topics');
+    }
+
 }

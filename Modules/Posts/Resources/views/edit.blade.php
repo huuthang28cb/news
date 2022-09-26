@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
 
 @section('title')
-<title>Create Post</title>
+<title>Edit Post</title>
 @endsection
 @section('content')
 <!-- Content Wrapper. Contains page content -->
@@ -15,7 +15,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Add Posts</h2>
+                    <h2>Edit Posts</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form action="{{route('posts.store') . '?type=' . request()->type}}" method="post" data-parsley-validate
+                    <form action="{{route('posts.update', [$dataPost->id])}}" method="post" data-parsley-validate
                         class="form-horizontal form-label-left">
                         @csrf
 
@@ -44,7 +44,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Title</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="title" value="{{old('title')}}"
+                                <input type="text" name="title" value="{{$dataPost->title}}"
                                     class="form-control @error('title') is-invalid @enderror">
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Description</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" value="{{old('description')}}" rows="3"></textarea>
+                                <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="3">{{$dataPost->description}}</textarea>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -76,7 +76,7 @@
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Content</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control my-editor @error('content') is-invalid @enderror" name="content" value="{{old('content')}}" name="content" rows="20" cols="50"></textarea>
+                                <textarea class="form-control my-editor @error('content') is-invalid @enderror" name="content" value="{{$dataPost->content}}" name="content" rows="20" cols="50">{{$dataPost->content}}</textarea>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -111,7 +111,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Writer</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="user_id" value="{{old('user_id')}}"
+                                <input type="text" name="user_id" value="{{$dataPost->user_id}}"
                                     class="form-control @error('user_id') is-invalid @enderror">
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
-                                <button type="submit" class="btn btn-success">Add</button>
+                                <button type="submit" class="btn btn-success">Edit</button>
                                 <a href="/posts"><button class="btn btn-primary" type="button">Back</button></a>
                             </div>
                         </div>

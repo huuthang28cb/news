@@ -6,8 +6,12 @@
 @section('content')
 
 <div class="mt-5 mr-3">
-    <a href="{{route('posts.create')}}">
-        <button type="button" class="btn btn-secondary float-right"><i class="fa fa-plus"></i></span> Add Post
+    <a href="{{route('posts.getApi') . '?type=1'}}">
+        <button type="button" class="btn btn-secondary float-right"><i class="fa fa-plus"></i></span> Get Post from API
+        </button>
+    </a>
+    <a href="{{route('posts.create') . '?type=0'}}">
+        <button type="button" class="btn btn-secondary float-right"><i class="fa fa-plus"></i></span> Write Post
         </button>
     </a>
 </div>
@@ -42,35 +46,45 @@
                         <th>User</th>
                         <th>Topic</th>
                         <th>Categories</th>
+                        <th>Post type</th>
                         <th>Enable status</th>
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($dataCategories as $categories_items)
+                    @foreach ($dataPosts as $posts_items)
                         
                     <tr>
-                        <th scope="row">{{ $categories_items->id }}</th>
-                        <td>{{ $categories_items->name }}</td>
+                        <th scope="row">{{ $posts_items->id }}</th>
+                        <td>{{ $posts_items->title }}</td>
+                        <td>{{ $posts_items->description }}</td>
+                        <td>{{ $posts_items->user_id }}</td>
+                        <td>{{optional($posts_items->topics)->name}}</td>
+                        <td>{{optional($posts_items->topics->categories)->name}}</td>
+                        @if ($posts_items->post_type == 1)
+                            <td>API</td>
+                        @else
+                            <td>Write</td>
+                        @endif
                         
-                        @if ($categories_items->enable == 1)
+                        @if ($posts_items->enable == 1)
                             <td>Enable</td>
                         @else
                             <td>Disable</td>
                         @endif
                         <td>
                             <a
-                                href=""
+                                href="{{ route('posts.edit', ['id'=>$posts_items->id]) }}"
                                 class="btn btn-primary "><i class="fa fa-edit"></i></a>
                             <a
-                                href=""
+                                href="{{ route('posts.destroy', ['id'=>$posts_items->id]) }}"
                                 data-url=""
                                 onclick="return confirm('Are you sure you want to delete this item?');"
                                 class="btn btn-danger action_delete "><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>          
         </div>

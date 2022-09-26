@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('content');
-            $table->integer('post_type')->default('0');
+            $table->boolean('post_type');
             $table->integer('user_id');
             $table->integer('topic_id');
             $table->boolean('enable')->default(true);

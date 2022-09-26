@@ -17,10 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     \UniSharp\LaravelFilemanager\Lfm::routes();
 // });
 
-Route::get('admin', "AdminController@loginAdmin");
-//Route::post('/admin', "AdminController@postloginAdmin");
+Route::get('admin', "App\Http\Controllers\AuthController@login");
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 });
 

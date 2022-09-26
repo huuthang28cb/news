@@ -21,4 +21,24 @@ Route::prefix('posts')->group(function() {
         'as' => 'posts.create',
         'uses' => 'PostsController@create',
     ]);
+    Route::post('/store', [
+        'as' => 'posts.store',
+        'uses' => 'PostsController@store',
+    ]);
+    Route::get('/edit/{id}', [
+        'as' => 'posts.edit',
+        'uses' => 'PostsController@edit',
+    ]);
+    Route::post('/update/{id}', [
+        'as' => 'posts.update',
+        'uses' => 'PostsController@update',
+    ]);
+    Route::post('/destroy/{id}', [
+        'as' => 'posts.destroy',
+        'uses' => 'PostsController@destroy',
+    ]);
+    Route::get('/get_api', [
+        'as' => 'posts.getApi',
+        'uses' => 'PostsController@getApi',
+    ]);
 });
