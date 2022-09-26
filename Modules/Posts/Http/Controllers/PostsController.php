@@ -129,52 +129,20 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 
+    function Parse($url){
+        $simpleXml = simplexml_load_file($url, "SimpleXMLElement", LIBXML_NOCDATA);
+        $json = json_encode($simpleXml);
+        return $json;
+    }
+
     public function getApi(){
-        // $api = "https://infonet.vietnamnet.vn/rss/doi-song.rss";
-        // $response = Http::get($api);
-        // $data = $response->body();
+        $api_url = "https://vnexpress.net/rss/gia-dinh.rss";
+        $hi = $this->Parse($api_url);
+        // $feedArr = json_decode(json_encode(simplexml_load_file($api_url)), true);
+        // $data = $feedArr['channel'];        
 
-        // dd($data);
+        dd($hi);
 
-        $feed = new DOMDocument();
-            $feed->load('RSS Feed Url');
-            $json = array();
-
-            $json['title'] = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
-            $json['description'] = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('description')->item(0)->firstChild->nodeValue;
-            $json['link'] = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
-
-            $items = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('item');
-
-            $json['item'] = array();
-            $i = 0;
-
-
-            foreach($items as $item) {
-
-            $title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
-            $description = $item->getElementsByTagName('description')->item(0)->firstChild->nodeValue;
-            $purchaseurl = $item->getElementsByTagName('purchaseurl')->item(0)->firstChild->nodeValue;
-            $standardimage = $item->getElementsByTagName('standardimage')->item(0)->firstChild->nodeValue;
-            $shipping =      $item->getElementsByTagName('shipping')->item(0)->firstChild->nodeValue;
-            $price =         $item->getElementsByTagName('price')->item(0)->firstChild->nodeValue;
-            $condition  =    $item->getElementsByTagName('condition')->item(0)->firstChild->nodeValue;
-            $guid = $item->getElementsByTagName('guid')->item(0)->firstChild->nodeValue;
-
-
-            $json['item'][$i++]['title'] = $title;
-            $json['item'][$i++]['description'] = $description;
-            $json['item'][$i++]['purchaseurl'] = $purchaseurl;
-            $json['item'][$i++]['image'] = $standardimage;
-            $json['item'][$i++]['shipping'] = $shipping;
-            $json['item'][$i++]['price'] = $price;
-            $json['item'][$i++]['type'] = $condition;
-            $json['item'][$i++]['guid'] = $guid;  
-
-            }
-
-
-echo json_encode($json);
-
+        //https://gist.github.com/BilalBudhani/4681837
     }
 }
