@@ -135,14 +135,33 @@ class PostsController extends Controller
         return $json;
     }
 
-    public function getApi(){
-        $api_url = "https://vnexpress.net/rss/gia-dinh.rss";
-        $hi = $this->Parse($api_url);
-        // $feedArr = json_decode(json_encode(simplexml_load_file($api_url)), true);
-        // $data = $feedArr['channel'];        
+    public function getApi(Request $request){
+        $url = "https://newsapi.org/v2/everything?q=tesla&from=2022-08-27&sortBy=publishedAt&apiKey=87384f1c2fe94e11a76b2f6ff11b337f";
 
-        dd($hi);
+        $data = Http::get($url);
 
-        //https://gist.github.com/BilalBudhani/4681837
+        $item = json_decode($data->body());
+
+        $i = collect($item->articles);
+
+        $limit = $i->take(5);   // take limited 5 items
+
+        $decode = json_decode($limit);
+
+        foreach($decode as $post){
+            $ite = (array)$post;
+            // create post
+            $dataPost = [
+                'title'=>$ite['title'],
+                'description'=>$ite['description'],
+                'content'=>$ite['content'],
+                'topic_id'=>'1',
+                'post_type'=>$request->type,
+                'user_id'=>'1',
+                'enable'=>'1'
+            ];
+            $this->posts->create($dataPost);
+        }
+        return redirect()->route('posts.index');
     }
 }

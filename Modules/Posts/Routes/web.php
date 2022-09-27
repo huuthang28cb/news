@@ -33,7 +33,7 @@ Route::prefix('posts')->group(function() {
         'as' => 'posts.update',
         'uses' => 'PostsController@update',
     ]);
-    Route::post('/destroy/{id}', [
+    Route::get('/destroy/{id}', [
         'as' => 'posts.destroy',
         'uses' => 'PostsController@destroy',
     ]);

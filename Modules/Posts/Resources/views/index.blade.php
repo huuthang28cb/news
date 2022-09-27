@@ -6,7 +6,9 @@
 @section('content')
 
 <div class="mt-5 mr-3">
-    <a href="{{route('posts.getApi') . '?type=1'}}">
+    <a 
+        onclick="return confirm('Are you sure you want to get form api?');"
+        href="{{route('posts.getApi') . '?type=1'}}">
         <button type="button" class="btn btn-secondary float-right"><i class="fa fa-plus"></i></span> Get Post from API
         </button>
     </a>
