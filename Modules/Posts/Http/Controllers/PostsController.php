@@ -136,7 +136,7 @@ class PostsController extends Controller
     }
 
     public function getApi(Request $request){
-        $url = "https://newsapi.org/v2/everything?q=tesla&from=2022-08-27&sortBy=publishedAt&apiKey=87384f1c2fe94e11a76b2f6ff11b337f";
+        $url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=87384f1c2fe94e11a76b2f6ff11b337f";
 
         $data = Http::get($url);
 
@@ -158,7 +158,8 @@ class PostsController extends Controller
                 'topic_id'=>'1',
                 'post_type'=>$request->type,
                 'user_id'=>'1',
-                'enable'=>'1'
+                'enable'=>'1',
+                'image_url'=>$ite['urlToImage']
             ];
             $this->posts->create($dataPost);
         }

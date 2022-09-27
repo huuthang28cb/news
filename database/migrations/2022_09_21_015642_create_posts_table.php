@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('topic_id');
             $table->boolean('enable')->default(true);
+            $table->string('feature_image_path');
+            $table->string('avatar');
             $table->timestamps();
         });
     }

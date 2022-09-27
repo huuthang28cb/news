@@ -36,8 +36,8 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form action="{{route('posts.store') . '?type=' . request()->type}}" method="post" data-parsley-validate
-                        class="form-horizontal form-label-left">
+                    <form action="{{route('posts.store') . '?type=' . request()->type}}" method="post"
+                        data-parsley-validate class="form-horizontal form-label-left">
                         @csrf
 
                         <div class="item form-group">
@@ -61,7 +61,9 @@
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Description</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control my-editor @error('description') is-invalid @enderror" name="description" value="{{old('description')}}" name="content" rows="10" cols="20"></textarea>
+                                <textarea class="form-control my-editor @error('description') is-invalid @enderror"
+                                    name="description" value="{{old('description')}}" name="content" rows="10"
+                                    cols="20"></textarea>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -71,12 +73,21 @@
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        {{-- avatar --}}
+                        <div class="item form-group">
+                            <label class='col-form-label col-md-3 col-sm-3 label-align'>Avatar</span></label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <input type="file" class="form-control-file" name="feature_image_path">
+                            </div>
+                        </div>
 
                         {{-- content --}}
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Content</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control my-editor @error('content') is-invalid @enderror" name="content" value="{{old('content')}}" name="content" rows="20" cols="50"></textarea>
+                                <textarea class="form-control my-editor @error('content') is-invalid @enderror"
+                                    name="content" value="{{old('content')}}" name="content" rows="20"
+                                    cols="50"></textarea>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -92,7 +103,8 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Topics</span>
                             </label>
                             <div class="col-md-6 col-sm-6">
-                                <select id="heard" name="topic_id" class="form-control @error('topic_id') is-invalid @enderror">
+                                <select id="heard" name="topic_id"
+                                    class="form-control @error('topic_id') is-invalid @enderror">
                                     <option value="" selected>Choose topic</option>
                                     {!! $htmlSelect !!}
                                 </select>
