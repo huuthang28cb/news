@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('topic_id');
             $table->boolean('enable')->default(true);
             $table->string('feature_image_path');
+            $table->string('feature_image_name');
             $table->string('avatar');
             $table->timestamps();
         });

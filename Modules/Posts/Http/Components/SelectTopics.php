@@ -16,8 +16,7 @@ class SelectTopics{
     }
     public function topicsSelectUpdate($selectId){        
         foreach ($this->data as $value){
-            if($selectId==$value->id){
-                
+            if($selectId==$value->id){              
                 $this->htmlSelect .= "<option selected value='" .$value['id'] ."'>". $value['name'] ."</option>";
             }else{
                 $this->htmlSelect .= "<option value='" .$value['id'] ."'>". $value['name'] ."</option>";

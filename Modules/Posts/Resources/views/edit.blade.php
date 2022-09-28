@@ -37,7 +37,7 @@
                 <div class="x_content">
                     <br />
                     <form action="{{route('posts.update', [$dataPost->id])}}" method="post" data-parsley-validate
-                        class="form-horizontal form-label-left">
+                        class="form-horizontal form-label-left" enctype="multipart/form-data">
                         @csrf
 
                         <div class="item form-group">
@@ -80,7 +80,19 @@
                                     class="form-control">
                             </div>
                         </div>
-                        
+                        {{-- avatar --}}
+                        <div class="item form-group">
+                            <label class='col-form-label col-md-3 col-sm-3 label-align'>Avatar</span></label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <input type="file" class="form-control-file" name="feature_image_path">
+                            </div>   
+                        </div>
+                        <div class="item form-group">
+                            <label class='col-form-label col-md-3 col-sm-3 label-align'>Avatar</span></label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <img class="feature_image" height="80" width="80" src="{{$dataPost->feature_image_path}}">
+                            </div>   
+                        </div>
 
                         {{-- content --}}
                         <div class="item form-group">

@@ -37,7 +37,7 @@
                 <div class="x_content">
                     <br />
                     <form action="{{route('posts.store') . '?type=' . request()->type}}" method="post"
-                        data-parsley-validate class="form-horizontal form-label-left">
+                        data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                         @csrf
 
                         <div class="item form-group">

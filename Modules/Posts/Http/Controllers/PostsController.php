@@ -11,29 +11,24 @@ use Modules\Posts\Http\Components\SelectTopics;
 use Modules\Posts\Http\Requests\CreatePostRequest;
 use Illuminate\Support\Facades\Http;
 use DOMDocument;
+use Modules\Posts\Http\Traits\StorageImageTrait;
 
 class PostsController extends Controller
 {
+    use StorageImageTrait;
     private $topics;
     private $posts;
     public function __construct(Topics $topics, Posts $posts){
         $this->topics=$topics;
         $this->posts=$posts;
     }
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
+
     public function index()
     {
         $dataPosts = $this->posts->all();
         return view('posts::index', compact('dataPosts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create()
     {
         $htmlSelect=$this->getTopics($topicId='');
@@ -47,11 +42,6 @@ class PostsController extends Controller
         return $htmlSelect;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
     public function store(CreatePostRequest $request)
     {
         $dataPostCreate = [
@@ -63,26 +53,25 @@ class PostsController extends Controller
             'user_id'=>$request->user_id,
             'enable'=>$request->enable
         ];
+
+        // data image upload
+        $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'posts');
+
+        // nếu image upload is not empty
+        if(!empty($dataUploadFeatureImage)){
+            $dataPostCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+            $dataPostCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
+        }
         // dd($dataPostCreate);
         $this->posts->create($dataPostCreate);
         return redirect()->route('posts.index');
     }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
     public function show($id)
     {
         return view('posts::show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
     public function edit($id)
     {
         $dataPost = $this->posts->find($id);
@@ -97,12 +86,7 @@ class PostsController extends Controller
         return $htmlSelect;
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
+    
     public function update(Request $request, $id)
     {
         $dataPostUpdate = [
@@ -113,16 +97,19 @@ class PostsController extends Controller
             'user_id'=>$request->user_id,
             'enable'=>$request->enable
         ];
-        // dd($dataPostCreate);
+        // data image upload
+        $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'posts');
+
+        // nếu image upload is not empty
+        if(!empty($dataUploadFeatureImage)){
+            $dataPostUpdate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+            $dataPostUpdate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
+        }
+
         $this->posts->find($id)->update($dataPostUpdate);
         return redirect()->route('posts.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
     public function destroy($id)
     {
         $this->posts->find($id)->delete();

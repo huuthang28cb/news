@@ -43,6 +43,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Avatar image</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>User</th>
@@ -58,6 +59,7 @@
                         
                     <tr>
                         <th scope="row">{{ $posts_items->id }}</th>
+                        <th><img src="{{ $posts_items->feature_image_path }}" height="50" width="50"></th>
                         <td>{{ $posts_items->title }}</td>
                         <td>{{ $posts_items->description }}</td>
                         <td>{{ $posts_items->user_id }}</td>
