@@ -137,7 +137,7 @@ class PostsController extends Controller
 
         foreach($decode as $post){
             $ite = (array)$post;
-            // create post
+            // create post 
             $dataPost = [
                 'title'=>$ite['title'],
                 'description'=>$ite['description'],
@@ -146,8 +146,9 @@ class PostsController extends Controller
                 'post_type'=>$request->type,
                 'user_id'=>'1',
                 'enable'=>'1',
-                'image_url'=>$ite['urlToImage']
+                'feature_image_path'=>$ite['urlToImage']
             ];
+            //dd($dataPost);
             $this->posts->create($dataPost);
         }
         return redirect()->route('posts.index');

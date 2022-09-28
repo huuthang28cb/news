@@ -8,6 +8,8 @@
 <div class="content-wrapper">
 
     <!-- Main content -->
+    {{-- Thử dùng cái này --}}
+    {{-- https://laravelcollective.com/docs/6.x/html#drop-down-lists --}}
 
 
     <div class="clearfix"></div>

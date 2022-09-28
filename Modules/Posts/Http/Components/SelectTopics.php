@@ -1,6 +1,8 @@
 <?php
 namespace Modules\Posts\Http\Components;
 
+use App\Models\Topics;
+
 class SelectTopics{
     private $data;
     private $htmlSelect = '';
@@ -14,9 +16,11 @@ class SelectTopics{
         }
         return $this->htmlSelect;
     }
-    public function topicsSelectUpdate($selectId){        
+    public function topicsSelectUpdate($selectId){    
         foreach ($this->data as $value){
-            if($selectId==$value->id){              
+            // dd($value->id, $selectId);
+            if($value->id==$selectId){      
+                dd('$value->id==$selectId'); 
                 $this->htmlSelect .= "<option selected value='" .$value['id'] ."'>". $value['name'] ."</option>";
             }else{
                 $this->htmlSelect .= "<option value='" .$value['id'] ."'>". $value['name'] ."</option>";
