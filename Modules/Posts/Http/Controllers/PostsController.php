@@ -117,11 +117,11 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 
-    function Parse($url){
-        $simpleXml = simplexml_load_file($url, "SimpleXMLElement", LIBXML_NOCDATA);
-        $json = json_encode($simpleXml);
-        return $json;
-    }
+    // tìm title trong db->đối chứng với nhau xem có trùng nhau hay k->nếu trùng thì ko tạo->ngược lại thì tạo luôn vào database
+    public function getTitle($title){
+        $title = $this->posts->where('title', $title)->get();   
+        return $title;
+    }   
 
     public function getApi(Request $request){
         $url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=87384f1c2fe94e11a76b2f6ff11b337f";
@@ -132,12 +132,14 @@ class PostsController extends Controller
 
         $i = collect($item->articles);
 
-        $limit = $i->take(5);   // take limited 5 items
+        $limit = $i->take(20);   // take limited 5 items
 
         $decode = json_decode($limit);
 
+
         foreach($decode as $post){
             $ite = (array)$post;
+            
             // create post 
             $dataPost = [
                 'title'=>$ite['title'],
@@ -150,7 +152,7 @@ class PostsController extends Controller
                 'feature_image_path'=>$ite['urlToImage']
             ];
             //dd($dataPost);
-            $this->posts->create($dataPost);
+            $this->posts->firstOrCreate($dataPost);
         }
         return redirect()->route('posts.index');
     }
