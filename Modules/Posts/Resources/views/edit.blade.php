@@ -61,7 +61,9 @@
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Description</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="3">{{$dataPost->description}}</textarea>
+                                <textarea name="description"
+                                    class="form-control @error('description') is-invalid @enderror"
+                                    rows="3">{{$dataPost->description}}</textarea>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -85,35 +87,40 @@
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Avatar</span></label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="file" class="form-control-file" name="feature_image_path">
-                            </div>   
+                            </div>
                         </div>
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Avatar</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <img class="feature_image" height="80" width="80" src="{{$dataPost->feature_image_path}}">
-                            </div>   
+                                <img class="feature_image" height="80" width="80"
+                                    src="{{$dataPost->feature_image_path}}">
+                            </div>
                         </div>
 
                         {{-- content --}}
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Content</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control my-editor @error('content') is-invalid @enderror" name="content" value="{{$dataPost->content}}" name="content" rows="20" cols="50">{{$dataPost->content}}</textarea>
+                                <textarea class="form-control my-editor @error('content') is-invalid @enderror"
+                                    name="content" value="{{$dataPost->content}}" name="content" rows="20"
+                                    cols="50">{{$dataPost->content}}</textarea>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
                             </label>
                             @error('content')
-                            <div class="text-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }} </div>
                             @enderror
                         </div>
 
                         {{-- topic --}}
                         <div class="item form-group">
-                            {!! Form::label(null, 'Topic:', ['class'=>'col-form-label col-md-3 col-sm-3 label-align']) !!}
+                            {!! Form::label(null, 'Topic:', ['class'=>'col-form-label col-md-3 col-sm-3 label-align'])
+                            !!}
                             <div class="col-md-6 col-sm-6">
-                                {!! Form::select('topic_id', $dataTopic->pluck('name', 'id'), $dataPost->topic_id, ['class'=>'form-control','placeholder' => 'Pick a category...']) !!}
+                                {!! Form::select('topic_id', $dataTopic->pluck('name', 'id'), $dataPost->topic_id,
+                                ['class'=>'form-control','placeholder' => 'Pick a category...']) !!}
                             </div>
                         </div>
 
