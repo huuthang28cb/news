@@ -75,8 +75,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $dataPost = $this->posts->find($id);
-        $htmlSelect=$this->getTopicsUpdate($dataPost->id);
-        return view('posts::edit', compact('htmlSelect', 'dataPost'));
+        $dataTopic = $this->topics->all();
+        //$htmlSelect=$this->getTopicsUpdate($dataPost->id);
+        return view('posts::edit', compact('dataTopic', 'dataPost'));
     }
 
     public function getTopicsUpdate($topicId){

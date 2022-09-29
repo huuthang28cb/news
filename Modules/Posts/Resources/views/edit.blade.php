@@ -111,15 +111,12 @@
 
                         {{-- topic --}}
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Topics</span>
-                            </label>
+                            {!! Form::label(null, 'Topic:', ['class'=>'col-form-label col-md-3 col-sm-3 label-align']) !!}
                             <div class="col-md-6 col-sm-6">
-                                <select id="heard" name="topic_id" class="form-control @error('topic_id') is-invalid @enderror">
-                                    <option value="" selected>Choose topic</option>
-                                    {!! $htmlSelect !!}
-                                </select>
+                                {!! Form::select('topic_id', $dataTopic->pluck('name', 'id'), $dataPost->topic_id, ['class'=>'form-control','placeholder' => 'Pick a category...']) !!}
                             </div>
                         </div>
+
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
                             </label>
