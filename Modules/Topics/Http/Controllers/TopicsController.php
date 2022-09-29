@@ -36,7 +36,7 @@ class TopicsController extends Controller
         return $htmlSelect;
     }
 
-   
+    
     public function create()
     {
         // dd('xin chao');
@@ -44,7 +44,7 @@ class TopicsController extends Controller
         return view('topics::create', compact('htmlSelect'));
     }
 
-   
+    
     public function store(CreateTopicsRequest $request)
     {
         // call model and create
@@ -56,18 +56,17 @@ class TopicsController extends Controller
         return redirect()->route('topics.index');
     }
 
-   
+    
     public function show($id)
     {
         return view('topics::show');
     }
-
-   
+    
     public function edit($id)
     {
         $dataTopic = $this->topics->find($id);
-        $htmlSelect = $this->getCategoriesUpdate($dataTopic->id);
-        return view('topics::edit', compact('dataTopic', 'htmlSelect'));
+        $dataCate = $this->categories->all();
+        return view('topics::edit', compact('dataTopic', 'dataCate'));
     }
 
     public function getCategoriesUpdate($categoriesId)
@@ -78,7 +77,7 @@ class TopicsController extends Controller
         return $htmlSelect;
     }
 
-   
+    
     public function update(UpdateTopicsRequest $request, $id)
     {
         $this->topics->find($id)->update([

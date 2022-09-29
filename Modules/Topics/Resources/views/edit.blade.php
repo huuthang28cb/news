@@ -7,7 +7,8 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
-    <!-- Main content -->
+    <!-- Main content --> {{-- Thử dùng cái này --}}
+    {{-- https://laravelcollective.com/docs/6.x/html#drop-down-lists --}}
 
 
     <div class="clearfix"></div>
@@ -36,47 +37,90 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <form action="{{route('topics.update', [$dataTopic->id])}}" method="post" data-parsley-validate
-                        class="form-horizontal form-label-left">
-                        @csrf
+                    {{-- <form action="{{route('topics.update', [$dataTopic->id])}}" method="post" data-parsley-validate
+                    class="form-horizontal form-label-left">
+                    @csrf
 
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Name</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="name" value="{{$dataTopic->name}}"
-                                    class="form-control @error('name') is-invalid @enderror">
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Name</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text" name="name" value="{{$dataTopic->name}}"
+                                class="form-control @error('name') is-invalid @enderror">
+                        </div>
+                    </div>
+
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
+                        </label>
+                        @error('name')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Categories</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6">
+                            <select id="heard" name="category_id"
+                                class="form-control @error('category_id') is-invalid @enderror" required>
+                                <option value="" selected>Choose categories</option>
+                                {!! $htmlSelect !!}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
+                        </label>
+                        @error('category_id')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align">Enable</label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <div id="gender" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-secondary" data-toggle-class="btn-primary"
+                                    data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="enable" value="1" class="join-btn"> &nbsp; Enable
+                                    &nbsp;
+                                </label>
+                                <label class="btn btn-primary" data-toggle-class="btn-primary"
+                                    data-toggle-passive-class="btn-default">
+                                    <input type="radio" name="enable" value="0" class="join-btn"> Disable
+                                </label>
                             </div>
                         </div>
+                    </div>
 
-
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
-                            </label>
-                            @error('name')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <a href="/topics"><button class="btn btn-primary" type="button">Back</button></a>
                         </div>
+                    </div>
 
+                    </form> --}}
+
+                    {!! Form::open(['method' => 'POST', 'route' => ['topics.update', $dataTopic->id]], ['class'=>'form-horizontal form-label-left']) !!}
+                    @csrf
+                    <div class="form-group">
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Categories</span>
-                            </label>
+                            {!! Form::label(null, 'Name:', ['class'=>'col-form-label col-md-3 col-sm-3 label-align']) !!}
                             <div class="col-md-6 col-sm-6">
-                                <select id="heard" name="category_id" class="form-control @error('category_id') is-invalid @enderror" required>
-                                    <option value="" selected>Choose categories</option>
-                                    {!! $htmlSelect !!}
-                                </select>
+                                {!! Form::text('name',$dataTopic->name, ['class'=>'form-control','placeholder'=>'Write name']) !!}
                             </div>
                         </div>
-
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
-                            </label>
-                            @error('category_id')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            {!! Form::label('category', 'Category:', ['class'=>'col-form-label col-md-3 col-sm-3 label-align']) !!}
+                            <div class="col-md-6 col-sm-6">
+                                {!! Form::select('category_id', $dataCate->pluck('name', 'id'), $dataTopic->category_id, ['class'=>'form-control','placeholder' => 'Pick a category...']) !!}
+                            </div>
                         </div>
-
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Enable</label>
                             <div class="col-md-6 col-sm-6 ">
@@ -93,16 +137,17 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="ln_solid"></div>
-                        <div class="item form-group">
-                            <div class="col-md-6 col-sm-6 offset-md-3">
-                                <button type="submit" class="btn btn-success">Update</button>
-                                <a href="/topics"><button class="btn btn-primary" type="button">Back</button></a>
-                            </div>
+                        
+                    </div>
+                    <div class="ln_solid"></div>
+                    <div class="item form-group">
+                        <div class="col-md-6 col-sm-6 offset-md-3">
+                            {!! Form::submit('Update', ['class'=>'btn btn-success']) !!}
+                            <a href="/topics"><button class="btn btn-primary" type="button">Back</button></a>
                         </div>
+                    </div>
+                    {!! Form::close() !!}
 
-                    </form>
                 </div>
             </div>
         </div>
