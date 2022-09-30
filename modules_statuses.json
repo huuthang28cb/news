@@ -1,5 +1,6 @@
 {
     "Categories": true,
     "Topics": true,
-    "Posts": true
+    "Posts": true,
+    "News": true
 }

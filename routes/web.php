@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth']], function () {
-//     \UniSharp\LaravelFilemanager\Lfm::routes();
-// });
-
 Route::get('admin', "App\Http\Controllers\AuthController@login");
 
 Route::get('/', function () {
     return view('home');
+});
+Route::get('/news', function () {
+    return view('news');
 });
 
 Route::prefix('admin')->group(function () {
@@ -35,5 +34,9 @@ Route::prefix('admin')->group(function () {
 
     // POSTS ROUTE
     Route::prefix('posts')->group(function () {
+    });
+
+    // NEWS ROUTE
+    Route::prefix('news')->group(function () {
     });
 });
