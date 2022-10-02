@@ -1,6 +1,7 @@
 <?php
 
 namespace Modules\Categories\Http\Controllers;
+
 use Modules\Categories\Http\Requests\CategoriesAddRequest;
 use Modules\Categories\Http\Requests\CategoriesUpdateRequest;
 
@@ -8,6 +9,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Models\Categories;
+use Illuminate\Support\Str;
 
 
 class CategoriesController extends Controller
@@ -16,7 +18,7 @@ class CategoriesController extends Controller
     private $categories;
     public function __construct(Categories $categories)
     {
-        $this->categories=$categories;
+        $this->categories = $categories;
     }
 
     /**
@@ -47,8 +49,9 @@ class CategoriesController extends Controller
     {
         // call model and create
         $this->categories->create([
-            'name'=>$request->name,
-            'enable'=>$request->enable,
+            'name' => $request->name,
+            'enable' => $request->enable,
+            'slug' => Str::slug($request->name)
         ]);
         return redirect()->route('categories.index');
     }
@@ -83,8 +86,8 @@ class CategoriesController extends Controller
     public function update(CategoriesUpdateRequest $request, $id)
     {
         $this->categories->find($id)->update([
-            'name'=>$request->name,
-            'enable'=>$request->enable,
+            'name' => $request->name,
+            'enable' => $request->enable,
         ]);
         return redirect()->route('categories.index');
     }
