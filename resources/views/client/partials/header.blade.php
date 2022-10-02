@@ -9,7 +9,7 @@
                             <div class="header-info-left">
                                 <ul>
                                     <li><img src="assets/img/icon/header_icon1.png" alt="">34ºc, Sunny </li>
-                                    <li><img src="assets/img/icon/header_icon1.png" alt="">Tuesday, 18th June, 2019
+                                    <li><img src="assets/img/icon/header_icon1.png" alt="">{{$date}}
                                     </li>
                                 </ul>
                             </div>

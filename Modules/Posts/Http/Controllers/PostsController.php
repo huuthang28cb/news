@@ -136,7 +136,7 @@ class PostsController extends Controller
 
         $i = collect($item->articles);
 
-        $limit = $i->take(20);   // take limited 5 items
+        $limit = $i->take(3);   // take limited 5 items
 
         $decode = json_decode($limit);
 
