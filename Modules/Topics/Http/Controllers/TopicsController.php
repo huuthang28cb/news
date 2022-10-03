@@ -11,6 +11,7 @@ use GuzzleHttp\Promise\Create;
 use Modules\Topics\Http\Requests\CreateTopicsRequest;
 use Modules\Topics\Http\Requests\UpdateTopicsRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class TopicsController extends Controller
 {
@@ -52,6 +53,7 @@ class TopicsController extends Controller
             'name'=>$request->name,
             'category_id'=>$request->category_id,
             'enable'=>$request->enable,
+            'slug' => Str::slug($request->name)
         ]);
         return redirect()->route('topics.index');
     }
@@ -84,6 +86,7 @@ class TopicsController extends Controller
             'name' => $request->name,
             'category_id'=> $request->category_id,
             'enable' => $request->enable,
+            'slug' => Str::slug($request->name)
         ]);
         return redirect()->route('topics.index');
     }

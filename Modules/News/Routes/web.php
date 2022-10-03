@@ -16,4 +16,8 @@ Route::prefix('news')->group(function() {
         'as' => 'news.index',
         'uses' => 'NewsController@index',
     ]);
+    Route::get('detail/{slug}', [
+        'as' => 'news.detail',
+        'uses' => 'NewsController@detail',
+    ]);
 });

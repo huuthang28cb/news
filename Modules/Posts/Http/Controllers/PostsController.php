@@ -2,6 +2,7 @@
 
 namespace Modules\Posts\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Posts;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -12,16 +13,19 @@ use Modules\Posts\Http\Requests\CreatePostRequest;
 use Illuminate\Support\Facades\Http;
 use DOMDocument;
 use Modules\Posts\Http\Traits\StorageImageTrait;
+use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
     use StorageImageTrait;
     private $topics;
     private $posts;
-    public function __construct(Topics $topics, Posts $posts)
+    private $categories;
+    public function __construct(Topics $topics, Posts $posts, Categories $categories)
     {
         $this->topics = $topics;
         $this->posts = $posts;
+        $this->categories = $categories;
     }
 
     public function index()
@@ -53,7 +57,8 @@ class PostsController extends Controller
             'topic_id' => $request->topic_id,
             'post_type' => $request->type,
             'user_id' => $request->user_id,
-            'enable' => $request->enable
+            'enable' => $request->enable,
+            'slug' => Str::slug($request->title)
         ];
 
         // data image upload
@@ -98,7 +103,8 @@ class PostsController extends Controller
             'content' => $request->content,
             'topic_id' => $request->topic_id,
             'user_id' => $request->user_id,
-            'enable' => $request->enable
+            'enable' => $request->enable,
+            'slug' => Str::slug($request->title)
         ];
         // data image upload
         $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'posts');
@@ -136,7 +142,7 @@ class PostsController extends Controller
 
         $i = collect($item->articles);
 
-        $limit = $i->take(3);   // take limited 5 items
+        $limit = $i->take(5);   // take limited 5 items
 
         $decode = json_decode($limit);
 
@@ -152,7 +158,8 @@ class PostsController extends Controller
                 'post_type' => $request->type,
                 'user_id' => '1',
                 'enable' => '1',
-                'feature_image_path' => $ite['urlToImage']
+                'feature_image_path' => $ite['urlToImage'],
+                'slug' => Str::slug($request->title)
             ];
             //dd($dataPost);
             $this->posts->firstOrCreate($dataPost);

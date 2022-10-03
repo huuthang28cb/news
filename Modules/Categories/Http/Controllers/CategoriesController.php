@@ -88,6 +88,7 @@ class CategoriesController extends Controller
         $this->categories->find($id)->update([
             'name' => $request->name,
             'enable' => $request->enable,
+            'slug' => Str::slug($request->name)
         ]);
         return redirect()->route('categories.index');
     }

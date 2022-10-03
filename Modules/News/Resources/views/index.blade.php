@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="trand-right-cap">
                                     <span class="text-danger">News</span>
-                                    <h6><a href="details.html">{{$post->title}}</a></h6>
+                                    <h6><a href="{{ route('news.detail', ['slug'=>$post->slug])}}">{{$post->title}}</a></h6>
                                 </div>
                             </div>
                         @endforeach
@@ -121,7 +121,7 @@
                                         <img src="{{$post->feature_image_path}}" alt="">
                                     </div>
                                     <div class="weekly-caption">
-                                        <span class="color1">Strike</span>
+                                        <span class="color1">Top news</span>
                                         <h4><a href="#">{{$post->title}}</a></h4>
                                     </div>
                                 </div>
