@@ -54,7 +54,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         @foreach ($data_Categories as $cate_item)
-                                            <li><a href="index.html">{{ $cate_item->name }}</a></li>
+                                            <li><a href="{{ route('news.categories', ['slug'=>$cate_item->slug]) }}">{{ $cate_item->name }}</a></li>
                                         @endforeach
                                         {{-- <li><a href="index.html"></a></li>
                                         <li><a href="categori.html">Category</a></li>

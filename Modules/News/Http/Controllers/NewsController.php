@@ -50,9 +50,11 @@ class NewsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function categories($slug)
     {
-        //
+        $categories_data = $this->categories->with('postss')->where('slug', $slug)->first();
+        //dd(json_decode($categories_data));
+        return view('news::categories', compact('categories_data'));
     }
 
 

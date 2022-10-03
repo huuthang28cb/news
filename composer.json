@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.7",
         "laravelcollective/html": "^6.3",
         "nwidart/laravel-modules": "^9.0",
+        "staudenmeir/eloquent-has-many-deep": "1.15",
         "unisharp/laravel-filemanager": "^2.5"
     },
     "require-dev": {
