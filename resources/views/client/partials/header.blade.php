@@ -57,7 +57,7 @@
                                             <li><a href="{{ route('news.categories', ['slug'=>$cate_item->slug]) }}">{{ $cate_item->name }}</a>
                                                 <ul class="submenu">
                                                     @foreach ($cate_item->topics as $topic_item)
-                                                        <li><a href="elements.html">{{ $topic_item->name }}</a></li>
+                                                        <li><a href="{{ route('news.topics', ['slug'=>$topic_item->slug])}}">{{ $topic_item->name }}</a></li>
                                                     @endforeach
                                                     
                                                 </ul>
