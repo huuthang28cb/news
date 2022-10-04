@@ -49,23 +49,23 @@
                                 <div class="col-lg-4">
                                     <div class="single-bottom mb-35">
                                         <div class="trend-bottom-img mb-30">
-                                            <img src="{{$tech->feature_image_path}}" alt="">
+                                            <a href="{{ route('news.detail', ['slug'=>$tech->slug])}}"><img src="{{$tech->feature_image_path}}" alt=""></a>
                                         </div>
                                         <div class="trend-bottom-cap">
                                             <span class="color1">Công nghệ</span>
-                                            <h4><a href="details.html">{{$tech->title}}</a></h4>
+                                            <h4><a href="{{ route('news.detail', ['slug'=>$tech->slug])}}">{{$tech->title}}</a></h4>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="single-bottom mb-35">
                                         <div class="trend-bottom-img mb-30">
-                                            <img src="{{$ent->feature_image_path}}" alt="">
+                                            <a href="{{ route('news.detail', ['slug'=>$ent->slug])}}"><img src="{{$ent->feature_image_path}}" alt=""></a>
                                         </div>
                                         <div class="trend-bottom-cap">
                                             <span class="color2">Giải trí</span>
                                             <h4>
-                                                <h4><a href="details.html">{{$ent->title}}</a></h4>
+                                                <h4><a href="{{ route('news.detail', ['slug'=>$ent->slug])}}">{{$ent->title}}</a></h4>
                                             </h4>
                                         </div>
                                     </div>
@@ -73,11 +73,11 @@
                                 <div class="col-lg-4">
                                     <div class="single-bottom mb-35">
                                         <div class="trend-bottom-img mb-30">
-                                            <img src="{{$new->feature_image_path}}" alt="">
+                                            <a href="{{ route('news.detail', ['slug'=>$new->slug])}}"><img src="{{$new->feature_image_path}}" alt=""></a>
                                         </div>
                                         <div class="trend-bottom-cap">
                                             <span class="color3">Thời sự</span>
-                                            <h4><a href="details.html">{{$new->title}}</a>
+                                            <h4><a href="{{ route('news.detail', ['slug'=>$new->slug])}}">{{$new->title}}</a>
                                             </h4>
                                         </div>
                                     </div>
