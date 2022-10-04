@@ -1,6 +1,6 @@
 @extends('client.layouts.client')
 @section('title')
-<title>Categoties</title>
+<title>Topic</title>
 @endsection
 @section('content')
 <main>
@@ -32,7 +32,7 @@
                         </div> --}}
                         <div class="col-lg-3 col-md-3">
                             <div class="trending-tittle">
-                                <strong>{{ $categories_data->name }}</strong>
+                                <strong>{{ $name->name }}</strong>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9">

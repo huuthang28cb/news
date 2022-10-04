@@ -24,4 +24,8 @@ Route::prefix('news')->group(function() {
         'as' => 'news.categories',
         'uses' => 'NewsController@categories',
     ]);
+    Route::get('topics/{slug}', [
+        'as' => 'news.topics',
+        'uses' => 'NewsController@topics',
+    ]);
 });

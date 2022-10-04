@@ -14,4 +14,8 @@ class Topics extends Model
     public function categories(){
         return $this->belongsTo(Categories::class, 'category_id');
     }
+
+    public function postss(){
+        return $this->hasMany(Posts::class, 'topic_id');
+    }
 }

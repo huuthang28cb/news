@@ -19,4 +19,8 @@ class Categories extends Model
         return $this->hasManyDeep(Posts::class, [Topics::class], ['category_id', 'topic_id']);
     }
 
+    public function topics(){
+        return $this->hasMany(Topics::class, 'category_id');
+    }
+
 }

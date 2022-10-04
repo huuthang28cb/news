@@ -54,8 +54,16 @@
                                 <nav>
                                     <ul id="navigation">
                                         @foreach ($data_Categories as $cate_item)
-                                            <li><a href="{{ route('news.categories', ['slug'=>$cate_item->slug]) }}">{{ $cate_item->name }}</a></li>
+                                            <li><a href="{{ route('news.categories', ['slug'=>$cate_item->slug]) }}">{{ $cate_item->name }}</a>
+                                                <ul class="submenu">
+                                                    @foreach ($cate_item->topics as $topic_item)
+                                                        <li><a href="elements.html">{{ $topic_item->name }}</a></li>
+                                                    @endforeach
+                                                    
+                                                </ul>
+                                            </li>
                                         @endforeach
+                                        
                                         {{-- <li><a href="index.html"></a></li>
                                         <li><a href="categori.html">Category</a></li>
                                         <li><a href="about.html">About</a></li>

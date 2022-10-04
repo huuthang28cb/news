@@ -52,15 +52,25 @@ class NewsController extends Controller
 
     public function categories($slug)
     {
+        $topics_data = json_decode($this->categories->with('topics')->where('slug', $slug)->first());
         $categories_data = $this->categories->with('postss')->where('slug', $slug)->first();
         //dd(json_decode($categories_data));
-        return view('news::categories', compact('categories_data'));
+        return view('news::categories', compact('categories_data', 'topics_data'));
     }
 
 
-    public function show($slug)
+    public function topics($slug)
     {
-        return view('news::show');
+        $list_topic = json_decode($this->topics->with('categories')->where('slug', $slug)->first()); // list các topic theo slug
+        $name = $list_topic->categories; // get name of categories
+        //dd($name);
+
+        $topics_data = json_decode($this->categories->with('topics')->where('slug', $name->slug)->first()); // get list topic with categories slug
+        //dd($topics_data);
+
+        $categories_data = json_decode($this->topics->with('postss')->where('slug', $slug)->first()); //cate có nhiều posts
+        //dd($categories_data);
+        return view('news::topics', compact('categories_data', 'topics_data', 'name'));
     }
 
 
