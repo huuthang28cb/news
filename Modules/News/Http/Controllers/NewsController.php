@@ -4,6 +4,7 @@ namespace Modules\News\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Posts;
+use App\Models\PostViews;
 use App\Models\Topics;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -44,6 +45,7 @@ class NewsController extends Controller
 
     public function detail($slug)
     {
+        //$this->posts->postviews()->attach($tagIds);
         $posts_data = $this->posts->latest()->skip(0)->take(10)->get(); //get first 5 rows and latest
         $detail = json_decode($this->posts->with('topics')->where('slug', $slug)->first());
         return view('news::detail', compact('detail', 'posts_data'));

@@ -15,4 +15,10 @@ class Posts extends Model
         return $this->belongsTo(Topics::class, 'topic_id');
     }
 
+    public function postviews(){
+        return $this
+            ->belongsToMany(PostViews::class, 'post_views', 'post_id')
+            ->withTimestamps();
+    }
+
 }
