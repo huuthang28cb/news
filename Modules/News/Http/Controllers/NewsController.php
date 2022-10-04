@@ -24,11 +24,18 @@ class NewsController extends Controller
     public function index()
     {
         // Công nghệ
-        $tech = json_decode($this->posts->with('topics')->where('topic_id', 4)->latest()->first());
+        //$tech = json_decode($this->posts->with('topics')->where('topic_id', 4)->latest()->first());
+        $tech = json_decode($this->categories->with('postss')->where('slug', 'cong-nghe')->first()->postss->first());
+        //dd($tech);
+
         // Giải trí
-        $ent = json_decode($this->posts->where('topic_id', 1)->latest()->first());
+        //$ent = json_decode($this->posts->where('topic_id', 1)->latest()->first());
+        $ent = json_decode($this->categories->with('postss')->where('slug', 'giai-tri')->first()->postss->first());
+
         // Thời sự
-        $new = json_decode($this->posts->where('topic_id', 6)->latest()->first());
+        //$new = json_decode($this->posts->where('topic_id', 6)->latest()->first());
+        $new = json_decode($this->categories->with('postss')->where('slug', 'xa-hoi')->first()->postss->first());
+        //dd($new);
 
         $first_post = $this->posts->latest()->first();
         $posts_data = $this->posts->latest()->skip(0)->take(5)->get(); //get first 5 rows and latest

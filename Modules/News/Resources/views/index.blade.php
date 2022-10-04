@@ -18,6 +18,12 @@
                                 <ul id="js-news" class="js-hidden">
                                     <li class="news-item">{{$first_post->title}}.
                                     </li>
+                                    <li class="news-item">{{$tech->title}}.
+                                    </li>
+                                    <li class="news-item">{{$ent->title}}.
+                                    </li>
+                                    <li class="news-item">{{$new->title}}.
+                                    </li>
                                     
                                 </ul>
                             </div>
