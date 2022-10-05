@@ -9,6 +9,7 @@ use App\Models\Topics;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Session;
 
 class NewsController extends Controller
 {
@@ -55,6 +56,43 @@ class NewsController extends Controller
         //$this->posts->postviews()->attach($tagIds);
         $posts_data = $this->posts->latest()->skip(0)->take(10)->get(); //get first 5 rows and latest
         $detail = json_decode($this->posts->with('topics')->where('slug', $slug)->first());
+
+        // count views
+        $sessionView = Session::get('key');
+
+        $post_id = json_decode($this->posts->where('slug', $slug)->first()->id);
+        
+        //new_views
+        $new_views = json_decode(PostViews::all()->where('post_id', $post_id)->first()->new_views);
+        //news_back
+        $views_back = json_decode(PostViews::all()->where('post_id', $post_id)->first()->views_back);
+        
+        if (!$sessionView) { // nếu chưa có session ->xem mới
+            Session::put('key', 1); //set giá trị cho session
+            $post = PostViews::updateOrCreate(
+                [
+                    'post_id'=> $post_id,
+                ],
+                [
+                    'new_views'=>$new_views+1,
+                    'views_back'=>$views_back
+                ]
+            );
+            //$post->increment('views');
+        }
+        else { // ->xem lại
+            $post = PostViews::updateOrCreate(
+                [
+                    'post_id'=> $post_id,
+                ],
+                [
+                    'new_views'=>$new_views,
+                    'views_back'=>$views_back+1
+                ]
+            );
+        }
+        //dd($post);
+
         return view('news::detail', compact('detail', 'posts_data'));
     }
 
