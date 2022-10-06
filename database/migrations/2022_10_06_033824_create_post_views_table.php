@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('post_views', function (Blueprint $table) {
             $table->id();
             $table->integer('post_id');
-            $table->integer('new_views');
-            $table->integer('views_back');
+            $table->string('ip_adress');
+            $table->string('country');
+            $table->string('city');
             $table->timestamps();
         });
     }

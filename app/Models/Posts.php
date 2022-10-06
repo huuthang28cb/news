@@ -21,4 +21,8 @@ class Posts extends Model
             ->withTimestamps();
     }
 
+    public function post_view(){
+        return $this->hasMany(PostViews::class, 'post_id');
+    }
+
 }

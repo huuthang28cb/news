@@ -16,11 +16,14 @@ class NewsController extends Controller
     private $topics;
     private $categories;
     private $posts;
-    public function __construct(Topics $topics, Posts $posts, Categories $categories)
+    private $post_views;
+
+    public function __construct(Topics $topics, Posts $posts, Categories $categories, PostViews $post_views)
     {
         $this->topics = $topics;
         $this->posts = $posts;
         $this->categories = $categories;
+        $this->post_views = $post_views;
     }
     public function index()
     {
@@ -39,7 +42,8 @@ class NewsController extends Controller
         //dd($new);
 
         $first_post = $this->posts->latest()->first();
-        $posts_data = $this->posts->latest()->skip(0)->take(5)->get(); //get first 5 rows and latest
+        $posts_data = json_decode($this->posts->with('post_view')->latest()->skip(0)->take(5)->get()); //get first 5 rows and latest
+        //dd($posts_data);
         //dd(json_decode($posts_data));
         return view('news::index', compact(
             'posts_data',
@@ -57,8 +61,8 @@ class NewsController extends Controller
         $posts_data = $this->posts->latest()->skip(0)->take(10)->get(); //get first 5 rows and latest
         $detail = json_decode($this->posts->with('topics')->where('slug', $slug)->first());
 
-        // count views
-        $sessionView = Session::get('key');
+        // count views vd:Post::where('slug',$slug)->increment('view_count');
+        /*$sessionView = Session::get('key');
 
         $post_id = json_decode($this->posts->where('slug', $slug)->first()->id);
         
@@ -91,7 +95,23 @@ class NewsController extends Controller
                 ]
             );
         }
-        //dd($post);
+        //dd($post); */
+        
+        //count views with ip
+        $ip_client = $_SERVER['REMOTE_ADDR'];
+        $post_id = json_decode($this->posts->where('slug', $slug)->first()->id);
+        $ip_data = geoip()->getLocation($ip_client);
+        
+        $post = PostViews::Create(
+            [
+                'post_id'=> $post_id,
+                'ip_adress'=>$ip_client,
+                'country'=>$ip_data->country,
+                'city'=>$ip_data->city,
+            ]
+        );
+
+        
 
         return view('news::detail', compact('detail', 'posts_data'));
     }

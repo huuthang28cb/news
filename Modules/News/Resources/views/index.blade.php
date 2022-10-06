@@ -93,7 +93,7 @@
                                     <img height="100" width="100" src="{{$post->feature_image_path}}" alt="">
                                 </div>
                                 <div class="trand-right-cap">
-                                    <span class="text-danger">News</span>
+                                    <span class="text-danger">News</span><i class="	fas fa-eye text-secondary"> {{ count($post->post_view) }}</i>
                                     <h6><a href="{{ route('news.detail', ['slug'=>$post->slug])}}">{{$post->title}}</a></h6>
                                 </div>
                             </div>
