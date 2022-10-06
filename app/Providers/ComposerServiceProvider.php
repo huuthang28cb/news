@@ -26,7 +26,7 @@ class ComposerServiceProvider extends ServiceProvider
         //dd('hfglkit');
         view()->composer(
             [
-                '*'
+                '*',
                 //...more
                 // '*' :view name - all views
             ],

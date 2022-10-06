@@ -2,5 +2,6 @@
     "Categories": true,
     "Topics": true,
     "Posts": true,
-    "News": true
+    "News": true,
+    "Home": true
 }

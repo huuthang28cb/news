@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('admin', "App\Http\Controllers\AuthController@login");
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::get('/news', function () {
     return view('news');
 });
@@ -38,5 +38,9 @@ Route::prefix('admin')->group(function () {
 
     // NEWS ROUTE
     Route::prefix('news')->group(function () {
+    });
+
+    // HOME ROUTE
+    Route::prefix('home')->group(function () {
     });
 });

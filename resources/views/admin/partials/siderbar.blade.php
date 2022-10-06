@@ -24,7 +24,7 @@
         <h3></h3>
         <ul class="nav side-menu">
             <li>
-                <a href="/" class="nav-link">
+                <a href="/home" class="nav-link">
                     <i class="fa fa-home">
                     </i> Home </span>
                 </a>
