@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topics extends Model
 {
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
     use HasFactory;
     protected $guarded = [];
 
@@ -17,5 +18,9 @@ class Topics extends Model
 
     public function postss(){
         return $this->hasMany(Posts::class, 'topic_id');
+    }
+
+    public function post_view(){
+        return $this->hasManyDeep(PostViews::class, [Posts::class], ['topic_id', 'post_id']);
     }
 }

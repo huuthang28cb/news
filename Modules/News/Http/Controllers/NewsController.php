@@ -99,7 +99,7 @@ class NewsController extends Controller
         //dd($post); */
         
         //count views with ip
-        $ip_client = '118.174.64.195';
+        $ip_client = '45.225.123.24';
         $post_id = json_decode($this->posts->where('slug', $slug)->first()->id);
         $ip_data = geoip()->getLocation($ip_client);
         

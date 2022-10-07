@@ -33,11 +33,17 @@
                                 <a href="{{ route('news.index') }}"><img src="{{ asset('news_templates/assets/img/logo/logo1.png') }}" alt=""></a>
                             </div>
                         </div>
-                        {{-- <div class="col-xl-9 col-lg-9 col-md-9">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
                             <div class="header-banner f-right ">
                                 <img src="assets/img/hero/header_card.jpg" alt="">
                             </div>
-                        </div> --}}
+                        </div>
+                        <div class="float-right">
+                            <div class="column">
+                                <button type="button" class="btn btn-primary">Login</button>
+                                <button type="button" class="btn btn-primary">Register</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

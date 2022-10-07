@@ -4,6 +4,7 @@ namespace Modules\Home\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\PostViews;
+use App\Models\Topics;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -13,11 +14,13 @@ class HomeController extends Controller
 {
     private $categories;
     private $postViews;
+    private $topics;
 
-    public function __construct(Categories $categories, PostViews $postViews)
+    public function __construct(Categories $categories, PostViews $postViews, Topics $topics)
     {
         $this->categories = $categories;
         $this->postViews = $postViews;
+        $this->topics = $topics;
     }
 
     public function index()
@@ -91,8 +94,24 @@ class HomeController extends Controller
         $back_today = collect($summ)->reduce(function ($carry, $item) {
             return $carry + $item->views_back;
         });
+        
         $view_back_today = $back_today - (collect($summ)->count());
         //dd($view_back_today);
+
+        // top country view
+        $country = json_decode($this->postViews
+            ->selectRaw('country, count(country) as coun')
+            ->groupBy('country')
+            ->orderBy('coun', 'DESC')
+            ->get()->take(5));
+        
+        // top topic
+        // $top_topic = json_decode($this->topics->with('post_view')->get()->cou);
+        // foreach($top_topic as $v){
+        //     $a = ($v->post_view);
+        //     dd($a);
+        // }
+        
 
         return view('home::index', compact(
             'total_views',
@@ -100,8 +119,10 @@ class HomeController extends Controller
             'total_views_back',
             'view_today',
             'new_view_today',
-            'view_back_today'
+            'view_back_today',
+            'country'
         ));
+        
     }
 
     /**
