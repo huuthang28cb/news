@@ -12,7 +12,7 @@
             <div class="col-md-2 col-sm-4  tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Views</span>
                 <div class="count">{{ $total_views }}</div>
-                <span class="count_bottom"><i class="green">+ {{ $view_today->today }} </i> views today</span>
+                <span class="count_bottom"><i class="green">+ {{ $view_today }} </i> views today</span>
             </div>
             <div class="col-md-2 col-sm-4  tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total New Views</span>

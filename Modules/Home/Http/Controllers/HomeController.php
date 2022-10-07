@@ -7,6 +7,7 @@ use App\Models\PostViews;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -47,36 +48,51 @@ class HomeController extends Controller
             ->groupBy('post_id', 'ip_adress')
             ->orderBy('views_back', 'DESC')
             ->having('views_back', '>', 1)
-            ->get()->first();
+            ->get();
         //$total_views_back = json_decode($views_back);
 
         $total_views_back = $total_views - $total_new_views;
-        //dd($total_views_back);
+        //dd(json_decode($views_back));
 
 
         // count the most viewed posts in the last 24 hours:
-        $view_today = json_decode($this->postViews
-            ->selectRaw('count(post_id) as today')
-            // ->groupBy('post_id', 'ip_adress')
-            ->where("created_at", ">=", date("Y-m-d H:i:s", strtotime('-24 hours', time())))
-            ->get()->first());
-
+        // $view_today = json_decode($this->postViews
+        //     ->selectRaw('count(post_id) as today')
+        //     // ->groupBy('post_id', 'ip_adress')
+        //     ->where("created_at", "=", now())
+        //     ->get()->first());
+        $view_today = $this->postViews->whereDate('created_at', Carbon::today())->count();
+        
         // new views today
-        $new_view_today = json_decode($this->postViews
+        $new_view_today2 = json_decode($this->postViews
             ->selectRaw('count(post_id) as new_views')
             ->groupBy('post_id', 'ip_adress')
-            ->where("created_at", ">=", date("Y-m-d H:i:s", strtotime('-24 hours', time())))
+            // ->where("created_at", ">=", date("Y-m-d H:i:s"))
+            ->whereDate('created_at', Carbon::today())
             ->having('new_views', '=', 1)
             ->get()->count());
+        $back2 = $this->postViews
+            ->selectRaw('count(post_id) as new_views')
+            ->groupBy('post_id', 'ip_adress')
+            ->whereDate('created_at', Carbon::today())
+            ->having('new_views', '>', 1)
+            ->count();
+
+        $new_view_today = ( $new_view_today2 + $back2);
         //dd($new_view_today);
+
         // back views today
-        $view_back_today = json_decode($this->postViews
+        $summ = json_decode($this->postViews
             ->selectRaw('count(post_id) as views_back')
             ->groupBy('post_id', 'ip_adress')
-            ->where("created_at", ">=", date("Y-m-d H:i:s", strtotime('-24 hours', time())))
+            ->whereDate('created_at', Carbon::today())
             ->having('views_back', '>', 1)
-            ->get()->count());
-        //dd(($view_back_today));
+            ->get());
+        $back_today = collect($summ)->reduce(function ($carry, $item) {
+            return $carry + $item->views_back;
+        });
+        $view_back_today = $back_today - (collect($summ)->count());
+        //dd($view_back_today);
 
         return view('home::index', compact(
             'total_views',
