@@ -44,3 +44,7 @@ Route::prefix('admin')->group(function () {
     Route::prefix('home')->group(function () {
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
