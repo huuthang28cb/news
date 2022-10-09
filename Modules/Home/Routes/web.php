@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('home')->group(function() {
+Route::prefix('dashboard')->group(function() {
     Route::get('/', [
-        'as' => 'home.index',
+        'as' => 'dashboard.index',
         'uses' => 'HomeController@index',
     ]);
 });

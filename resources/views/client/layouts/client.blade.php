@@ -9,6 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- CSS here -->
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/bootstrap.min.css') }}">
@@ -23,6 +34,7 @@
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/style.css') }}">
+
 </head>
 
 <body>

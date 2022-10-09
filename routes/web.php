@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('admin', "App\Http\Controllers\AuthController@login");
+//Route::get('admin', "App\Http\Controllers\AuthController@login");
 
 // Route::get('/', function () {
 //     return view('home');
 // });
-Route::get('/news', function () {
-    return view('news');
-});
+// Route::get('/news', function () {
+//     return view('news');
+// });
 
 Route::prefix('admin')->group(function () {
 
@@ -37,14 +37,14 @@ Route::prefix('admin')->group(function () {
     });
 
     // NEWS ROUTE
-    Route::prefix('news')->group(function () {
+    Route::prefix('/news')->group(function () {
     });
 
     // HOME ROUTE
-    Route::prefix('home')->group(function () {
+    Route::prefix('dashboard')->group(function () {
     });
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/news', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

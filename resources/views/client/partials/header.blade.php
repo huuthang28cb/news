@@ -33,16 +33,50 @@
                                 <a href="{{ route('news.index') }}"><img src="{{ asset('news_templates/assets/img/logo/logo1.png') }}" alt=""></a>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4">
+                        <div class="col-xl-5 col-lg-5 col-md-5">
                             <div class="header-banner f-right ">
                                 <img src="assets/img/hero/header_card.jpg" alt="">
                             </div>
                         </div>
-                        <div class="float-right">
-                            <div class="column">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            {{-- <div class="column">
                                 <button type="button" class="btn btn-primary">Login</button>
                                 <button type="button" class="btn btn-primary">Register</button>
-                            </div>
+                            </div> --}}
+                            <ul class="navbar-nav ms-auto">
+                                <!-- Authentication Links -->
+                                @guest
+                                    @if (Route::has('login'))
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                        </li>
+                                    @endif
+        
+                                    @if (Route::has('register'))
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <li class="nav-item dropdown">
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            Hello, {{ Auth::user()->name }}
+                                        </a>
+        
+                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+        
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
+                                @endguest
+                            </ul>
                         </div>
                     </div>
                 </div>

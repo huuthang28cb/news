@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function login(){
         if(Auth::check()){
-            return redirect()->to('/');
+            return redirect()->to('/news');
         }
         else{
             return view('login');
