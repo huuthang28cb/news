@@ -63,7 +63,12 @@
                                             Hello, {{ Auth::user()->name }}
                                         </a>
         
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <div class="dropdown-menu float-left" aria-labelledby="navbarDropdown">
+                                            @if ((Auth::user()->user_type)==0)
+                                                <a class="dropdown-item text-dark" href="/posts/create?type=0">Add post</a>
+                                            @else
+                                            <a class="dropdown-item text-dark" href="/dashboard">Dashboard</a>
+                                            @endif
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">

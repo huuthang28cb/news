@@ -66,6 +66,12 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                @if (Route::has('login'))
+                                
+                                <p>Already have an account?<a class="btn btn-link" href="{{ route('login') }}">
+                                    {{ __('Login') }}
+                                </a></p>
+                            @endif
                             </div>
                         </div>
                     </form>

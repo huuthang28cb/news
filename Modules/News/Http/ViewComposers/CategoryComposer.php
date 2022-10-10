@@ -4,6 +4,7 @@ namespace Modules\News\Http\ViewComposers;
 
 use Illuminate\View\View;
 use app\Models\Categories;
+use App\Models\Posts;
 
 class CategoryComposer
 {
@@ -16,7 +17,8 @@ class CategoryComposer
     {
         // get all category
         $data_Categories = json_decode($this->categories->with('topics')->get());
-        //dd($data_Categories);
+        $post_disable = json_decode(Posts::where('enable', 0)->with('post_user')->get());
+        //dd($post_disable);
 
         // get topic
 
@@ -25,6 +27,7 @@ class CategoryComposer
 
         //dd($data_Categories);
         $view->with('data_Categories', $data_Categories)
-                ->with('date', $date);
+                ->with('date', $date)
+                ->with('post_disable', $post_disable);
     }
 }

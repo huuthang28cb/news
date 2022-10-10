@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Http;
 use DOMDocument;
 use Modules\Posts\Http\Traits\StorageImageTrait;
 use Illuminate\Support\Str;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -36,8 +37,9 @@ class PostsController extends Controller
 
     public function create()
     {
+        $au = Auth::user();
         $htmlSelect = $this->getTopics($topicId = '');
-        return view('posts::create', compact('htmlSelect'));
+        return view('posts::create', compact('htmlSelect', 'au'));
     }
 
     public function getTopics($topicId)
@@ -50,6 +52,15 @@ class PostsController extends Controller
 
     public function store(CreatePostRequest $request)
     {
+        
+        $auth = Auth::user()->user_type;
+        if($auth == 1) // is admin
+        {
+            $en = $request->enable;
+        }
+        else{
+            $en = 0;
+        }
         $dataPostCreate = [
             'title' => $request->title,
             'description' => $request->description,
@@ -57,9 +68,12 @@ class PostsController extends Controller
             'topic_id' => $request->topic_id,
             'post_type' => $request->type,
             'user_id' => $request->user_id,
-            'enable' => $request->enable,
+            'enable' => $en,
             'slug' => Str::slug($request->title)
         ];
+        
+        
+        //dd($dataPostCreate);
 
         // data image upload
         $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'posts');

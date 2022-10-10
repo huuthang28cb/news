@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('admin', "App\Http\Controllers\AuthController@login");
+Route::get('/auth', "App\Http\Controllers\AuthController@auth");
+Auth::routes();
 
 // Route::get('/', function () {
 //     return view('home');
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('news');
 // });
 
-Route::prefix('admin')->group(function () {
+Route::prefix('/auth')->group(function () {
 
     // CATEGORIES ROUTE
     Route::prefix('categories')->group(function () {
@@ -37,7 +38,7 @@ Route::prefix('admin')->group(function () {
     });
 
     // NEWS ROUTE
-    Route::prefix('/news')->group(function () {
+    Route::prefix('news')->group(function () {
     });
 
     // HOME ROUTE
@@ -45,6 +46,6 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-Auth::routes();
+
 
 //Route::get('/news', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

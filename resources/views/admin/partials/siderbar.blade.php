@@ -1,3 +1,5 @@
+@if (Auth::user()->user_type == 0)
+@else
 <div class="navbar nav_title" style="border: 0;">
     <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Admin Manager</span></a>
 </div>
@@ -22,11 +24,12 @@
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
         <h3></h3>
+        
         <ul class="nav side-menu">
             <li>
-                <a href="/home" class="nav-link">
+                <a href="/dashboard" class="nav-link">
                     <i class="fa fa-home">
-                    </i> Home </span>
+                    </i> Home</span>
                 </a>
             </li>
         
@@ -56,7 +59,6 @@
         
         </ul>
     </div>
-    
-
 </div>
+@endif
 <!-- /sidebar menu -->

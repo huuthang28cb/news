@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
 {
+    private $categories;
+    public function __construct(Categories $categories)
+    {
+        $this->categories = $categories;
+    }
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller

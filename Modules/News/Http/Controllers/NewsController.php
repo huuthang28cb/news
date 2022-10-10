@@ -42,8 +42,8 @@ class NewsController extends Controller
         $new = json_decode($this->categories->with('postss')->where('slug', 'xa-hoi')->first()->postss->first());
         //dd($new);
 
-        $first_post = $this->posts->latest()->first();
-        $posts_data = json_decode($this->posts->with('post_view')->latest()->skip(0)->take(5)->get()); //get first 5 rows and latest
+        $first_post = $this->posts->where('enable', 1)->latest()->first();
+        $posts_data = json_decode($this->posts->with('post_view')->where('enable', 1)->latest()->skip(0)->take(5)->get()); //get first 5 rows and latest
         //dd($posts_data);
         //dd(json_decode($posts_data));
         return view('news::index', compact(

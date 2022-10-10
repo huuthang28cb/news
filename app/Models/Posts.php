@@ -14,7 +14,7 @@ class Posts extends Model
     public function topics(){
         return $this->belongsTo(Topics::class, 'topic_id');
     }
-
+    
     public function postviews(){
         return $this
             ->belongsToMany(PostViews::class, 'post_views', 'post_id')
@@ -23,6 +23,10 @@ class Posts extends Model
 
     public function post_view(){
         return $this->hasMany(PostViews::class, 'post_id');
+    }
+
+    public function post_user(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 
 }

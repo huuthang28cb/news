@@ -24,7 +24,7 @@ class CreatePostRequest extends FormRequest
             'content' => 'required',
             'user_id' => 'required',
             'topic_id' => 'required',
-            'enable' => 'required',
+            //'enable' => 'required',
         ];
     }
     
@@ -38,7 +38,7 @@ class CreatePostRequest extends FormRequest
             'description.min' => 'Description cannot be less than 3 characters',
             'content.required' => 'Content cannot be blank',
             'user_id.required' => 'User_id cannot be blank',
-            'enable.required' => 'Enable cannot be blank',
+            // 'enable.required' => 'Enable cannot be blank',
         ];
     }
 }

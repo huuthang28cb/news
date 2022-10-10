@@ -7,12 +7,10 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function login(){
-        if(Auth::check()){
-            return redirect()->to('/news');
+    public function auth(){
+        if(auth()->check()){
+            return redirect()->to('news');
         }
-        else{
-            return view('login');
-        }
+        return redirect()->to('login');
     }
 }
