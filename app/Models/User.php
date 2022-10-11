@@ -12,11 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
     protected $guarded = [];
 
     /**
@@ -38,7 +34,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function post_list(){
+    public function post_list()
+    {
         return $this->hasMany(Posts::class, 'user_id');
+    }
+
+    public function check()
+    {
+        return $this->hasManyDeep(CheckPosts::class, [Posts::class], ['user_id', 'post_id']);
+    }
+
+    public function check2()
+    {
+        return $this->hasManyThrough(CheckPosts::class, Posts::class, 'user_id', 'post_id');
     }
 }

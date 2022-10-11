@@ -26,7 +26,9 @@ class ComposerServiceProvider extends ServiceProvider
         //dd('hfglkit');
         view()->composer(
             [
-                '*',
+                'client.partials.header',
+                'admin.partials.content-header',
+                'admin.partials.header'
                 //...more
                 // '*' :view name - all views
             ],

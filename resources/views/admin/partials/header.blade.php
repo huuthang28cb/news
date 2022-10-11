@@ -28,8 +28,13 @@
                 <li role="presentation" class="nav-item dropdown open">
                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                         data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-                        <span class="badge bg-red">{{ count($post_disable) }}</span>
+                        @if (Auth::user()->user_type == 1)
+                            <i class="fa fa-bell"></i>
+                            <span class="badge bg-red">{{ count($post_disable) }}</span>
+                        @else
+                            <i class="fa fa-bell"></i>
+                            <span class="badge bg-red">{{ count($checked_posts) }}</span>
+                        @endif
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                         @include('admin.partials.content-header')

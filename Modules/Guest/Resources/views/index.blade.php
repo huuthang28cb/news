@@ -51,6 +51,7 @@
                         <th>Categories</th> --}}
                         {{-- <th>Post type</th> --}}
                         <th>Enable status</th>
+                        {{-- <th>Description disable</th> --}}
                         <th colspan="2">Action</th>
                     </tr>
                 </thead>
@@ -76,6 +77,12 @@
                         @else
                             <td>Disable</td>
                         @endif
+                        {{-- @if ($dataPosts->check2[0]->description_check == '')
+                            <td>null</td>
+                        @else
+                            <td>{{$dataPosts->check2[0]->description_check}}</td>
+                        @endif --}}
+                        
                         <td>
                             <a
                                 href="{{ route('posts.edit', ['id'=>$posts_items->id]) }}"
