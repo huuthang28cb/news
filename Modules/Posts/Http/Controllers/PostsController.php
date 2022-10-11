@@ -95,10 +95,11 @@ class PostsController extends Controller
 
     public function edit($id)
     {
+        $au = Auth::user();
         $dataPost = $this->posts->find($id);
         $dataTopic = $this->topics->all();
         //$htmlSelect=$this->getTopicsUpdate($dataPost->id);
-        return view('posts::edit', compact('dataTopic', 'dataPost'));
+        return view('posts::edit', compact('dataTopic', 'dataPost', 'au'));
     }
 
     public function getTopicsUpdate($topicId)
@@ -111,13 +112,21 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $auth = Auth::user()->user_type;
+        if($auth == 1) // is admin
+        {
+            $en = $request->enable;
+        }
+        else{
+            $en = 0;
+        }
         $dataPostUpdate = [
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
             'topic_id' => $request->topic_id,
             'user_id' => $request->user_id,
-            'enable' => $request->enable,
+            'enable' => $en,
             'slug' => Str::slug($request->title)
         ];
         // data image upload

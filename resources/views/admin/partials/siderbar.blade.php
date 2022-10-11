@@ -1,7 +1,6 @@
-@if (Auth::user()->user_type == 0)
-@else
+
 <div class="navbar nav_title" style="border: 0;">
-    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Admin Manager</span></a>
+    <a href="/news" class="site_title"><i class="fa fa-paw"></i> <span>Home Page</span></a>
 </div>
 
 <div class="clearfix"></div>
@@ -13,13 +12,29 @@
     </div>
     <div class="profile_info">
         <span>Welcome,</span>
-        <h2>Admin</h2>
+        <h2>{{ Auth::user()->name }}</h2>
     </div>
 </div>
 <!-- /menu profile quick info -->
 
 <br />
-
+@if (Auth::user()->user_type == 0)
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <h3></h3>
+        
+        <ul class="nav side-menu">
+            <li>
+                <a href="{{ route('guest.index') }}" class="nav-link">
+                    <i class="fa fa-list">
+                    </i> List post</span>
+                </a>
+            </li>
+        
+        </ul>
+    </div>
+</div>
+@else
 <!-- sidebar menu -->
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">

@@ -44,6 +44,10 @@ Route::prefix('/auth')->group(function () {
     // HOME ROUTE
     Route::prefix('dashboard')->group(function () {
     });
+
+    // ROUTE guest
+    Route::prefix('guest')->group(function () {
+    });
 });
 
 

@@ -65,7 +65,7 @@
         
                                         <div class="dropdown-menu float-left" aria-labelledby="navbarDropdown">
                                             @if ((Auth::user()->user_type)==0)
-                                                <a class="dropdown-item text-dark" href="/posts/create?type=0">Add post</a>
+                                                <a class="dropdown-item text-dark" href="/posts/create?type=0">Post</a>
                                             @else
                                             <a class="dropdown-item text-dark" href="/dashboard">Dashboard</a>
                                             @endif

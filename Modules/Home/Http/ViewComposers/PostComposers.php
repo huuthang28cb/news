@@ -14,7 +14,7 @@ class PostsComposer
     }
     public function compose(View $view)
     {
-        dd('skhskdfhskd');
+        //dd('skhskdfhskd');
 
         // get all category
         $data_posts = json_decode($this->posts->where('enable', 0)->get());

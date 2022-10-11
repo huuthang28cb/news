@@ -149,28 +149,30 @@
                             @enderror
                         </div>
 
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Enable</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <div id="gender" class="btn-group" data-toggle="buttons">
-                                    <label class="btn btn-secondary" data-toggle-class="btn-primary"
-                                        data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="enable" value="1" class="join-btn"> &nbsp; Enable
-                                        &nbsp;
-                                    </label>
-                                    <label class="btn btn-primary" data-toggle-class="btn-primary"
-                                        data-toggle-passive-class="btn-default">
-                                        <input type="radio" name="enable" value="0" class="join-btn"> Disable
-                                    </label>
+                        @if (($au->user_type)==1)
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align">Enable</label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <div id="gender" class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-secondary" data-toggle-class="btn-primary"
+                                            data-toggle-passive-class="btn-default">
+                                            <input type="radio" name="enable" value="1" class="join-btn"> &nbsp; Enable
+                                            &nbsp;
+                                        </label>
+                                        <label class="btn btn-primary" data-toggle-class="btn-primary"
+                                            data-toggle-passive-class="btn-default">
+                                            <input type="radio" name="enable" value="0" class="join-btn"> Disable
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
 
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
                                 <button type="submit" class="btn btn-success">Edit</button>
-                                <a href="/posts"><button class="btn btn-primary" type="button">Back</button></a>
+                                <a href="/guest"><button class="btn btn-primary" type="button">Back</button></a>
                             </div>
                         </div>
 

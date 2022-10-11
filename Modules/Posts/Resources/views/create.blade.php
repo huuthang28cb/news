@@ -61,8 +61,8 @@
                         <div class="item form-group">
                             <label class='col-form-label col-md-3 col-sm-3 label-align'>Description</span></label>
                             <div class="col-md-6 col-sm-6 ">
-                                <textarea class="form-control my-editor @error('description') is-invalid @enderror"
-                                    name="description" value="{{old('description')}}" name="content" rows="10"
+                                <textarea class="form-control @error('description') is-invalid @enderror"
+                                    name="description" value="{{old('description')}}" name="content" rows="3"
                                     cols="20"></textarea>
                             </div>
                         </div>

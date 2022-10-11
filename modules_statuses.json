@@ -3,5 +3,6 @@
     "Topics": true,
     "Posts": true,
     "News": true,
-    "Home": true
+    "Home": true,
+    "Guest": true
 }
