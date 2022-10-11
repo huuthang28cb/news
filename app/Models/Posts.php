@@ -29,4 +29,8 @@ class Posts extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function post_check(){
+        return $this->hasOne(CheckPosts::class, 'post_id');
+    }
+
 }

@@ -41,4 +41,12 @@ Route::prefix('posts')->group(function() {
         'as' => 'posts.getApi',
         'uses' => 'PostsController@getApi',
     ]);
+    Route::get('/check/{id}', [
+        'as' => 'posts.check',
+        'uses' => 'PostsController@check',
+    ]);
+    Route::post('/checked/{id}', [
+        'as' => 'posts.checked',
+        'uses' => 'PostsController@checked',
+    ]);
 });

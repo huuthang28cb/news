@@ -3,6 +3,7 @@
 namespace Modules\Posts\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\CheckPosts;
 use App\Models\Posts;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -22,11 +23,13 @@ class PostsController extends Controller
     private $topics;
     private $posts;
     private $categories;
-    public function __construct(Topics $topics, Posts $posts, Categories $categories)
+    private $check_post;
+    public function __construct(Topics $topics, Posts $posts, Categories $categories, CheckPosts $check_post)
     {
         $this->topics = $topics;
         $this->posts = $posts;
         $this->categories = $categories;
+        $this->check_post = $check_post;
     }
 
     public function index()
@@ -187,6 +190,52 @@ class PostsController extends Controller
             //dd($dataPost);
             $this->posts->firstOrCreate($dataPost);
         }
+        return redirect()->route('posts.index');
+    }
+
+    public function check($id){
+        $au = Auth::user();
+        $dataPost = $this->posts->find($id);
+        $dataTopic = $this->topics->all();
+        //$htmlSelect=$this->getTopicsUpdate($dataPost->id);
+        return view('posts::check', compact('dataTopic', 'dataPost', 'au'));
+    }
+
+    public function checked(Request $request, $id){
+        $auth = Auth::user()->user_type;
+        if($auth == 1) // is admin
+        {
+            $en = $request->enable;
+        }
+        else{
+            $en = 0;
+        }
+        $dataPostUpdate = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+            'topic_id' => $request->topic_id,
+            'user_id' => $request->user_id,
+            'enable' => $en,
+            'slug' => Str::slug($request->title)
+        ];
+        // data image upload
+        $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'posts');
+
+        // nếu image upload is not empty
+        if (!empty($dataUploadFeatureImage)) {
+            $dataPostUpdate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
+            $dataPostUpdate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
+        }
+        //
+        $data_check = [
+            'post_id'=>$id,
+            'description_check'=>$request->description_check,
+            'enable'=>1
+        ];
+        //dd($dataPostUpdate);
+        $this->posts->find($id)->update($dataPostUpdate);
+        $this->check_post->create($data_check);
         return redirect()->route('posts.index');
     }
 }

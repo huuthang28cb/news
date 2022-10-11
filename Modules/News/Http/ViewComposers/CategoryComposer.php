@@ -18,7 +18,11 @@ class CategoryComposer
         // get all category
         $data_Categories = json_decode($this->categories->with('topics')->get());
         $post_disable = json_decode(Posts::where('enable', 0)->with('post_user')->get());
-        //dd($post_disable);
+        $checked_posts = json_decode(Posts::where('enable', 0)->with('post_user')->with('post_check')->get());
+        // foreach($checked_posts as $t){
+        //     $g = array_merge($t['post_user'], $t['post_check']);
+        // }
+        // dd($$g);
 
         // get topic
 
@@ -28,6 +32,7 @@ class CategoryComposer
         //dd($data_Categories);
         $view->with('data_Categories', $data_Categories)
                 ->with('date', $date)
-                ->with('post_disable', $post_disable);
+                ->with('post_disable', $post_disable)
+                ->with('checked_posts', $checked_posts);
     }
 }
