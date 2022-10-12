@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('categories')->group(function() {
+Route::prefix('categories')->middleware('checkLogin')->group(function() {
     Route::get('/', [
         'as' => 'categories.index',
         'uses' => 'CategoriesController@index',

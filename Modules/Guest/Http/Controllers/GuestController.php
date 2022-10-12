@@ -9,7 +9,7 @@ use App\Models\Categories;
 use App\Models\CheckPosts;
 use App\Models\Posts;
 use App\Models\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
 {

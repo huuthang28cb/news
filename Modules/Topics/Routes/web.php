@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('topics')->group(function () {
+Route::prefix('topics')->middleware('checkLogin')->group(function () {
     Route::get('/', [
         'as' => 'topics.index',
         'uses' => 'TopicsController@index',

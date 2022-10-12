@@ -95,7 +95,7 @@ class HomeController extends Controller
             return $carry + $item->views_back;
         });
         
-        $view_back_today = $back_today - (collect($summ)->count());
+        $view_back_today = (int)$back_today - (collect($summ)->count());
         //dd($view_back_today);
 
         // top country view

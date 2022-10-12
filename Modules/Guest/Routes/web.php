@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('guest')->group(function() {
+Route::prefix('guest')->middleware('checkLogin')->group(function() {
     Route::get('/', [
         'as' => 'guest.index',
         'uses' => 'GuestController@index',

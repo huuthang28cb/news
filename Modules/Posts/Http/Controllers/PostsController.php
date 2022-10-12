@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Http;
 use DOMDocument;
 use Modules\Posts\Http\Traits\StorageImageTrait;
 use Illuminate\Support\Str;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -77,7 +77,6 @@ class PostsController extends Controller
         
         
         //dd($dataPostCreate);
-
         // data image upload
         $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'posts');
 
@@ -86,8 +85,20 @@ class PostsController extends Controller
             $dataPostCreate['feature_image_name'] = $dataUploadFeatureImage['file_name'];
             $dataPostCreate['feature_image_path'] = $dataUploadFeatureImage['file_path'];
         }
+        
         // dd($dataPostCreate);
         $this->posts->create($dataPostCreate);
+
+        // get id post
+        $id_post = json_decode($this->posts->where('title', $request->title)->first()->id);
+        //dd($id_post);
+        $data_check = [
+            'post_id'=>$id_post,
+            'description_check'=>null,
+            'enable'=>1
+        ];
+        
+        $this->check_post->create($data_check);
         return redirect()->route('posts.index');
     }
 
@@ -235,7 +246,10 @@ class PostsController extends Controller
         ];
         //dd($dataPostUpdate);
         $this->posts->find($id)->update($dataPostUpdate);
-        $this->check_post->create($data_check);
+        // get id check table
+        $o = json_decode($this->check_post->with('post')->where('post_id', $id)->first()->id);
+        // dd($o);
+        $this->check_post->find($o)->update($data_check);
         return redirect()->route('posts.index');
     }
 }

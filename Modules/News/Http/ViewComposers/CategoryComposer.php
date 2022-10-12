@@ -17,13 +17,14 @@ class CategoryComposer
     public function compose(View $view)
     {
         // get all category
-        // $auth_id = Auth::user()->id;
+        $auth_id = Auth::user()->id;
         $data_Categories = json_decode($this->categories->with('topics')->get());
-        $post_disable = json_decode(Posts::where('enable', 0)->with('post_user')->get());
+        $post_disable = json_decode(Posts::where('enable', 0)->with('post_user')->with('post_check')->get());
+        //dd($post_disable);
         $checked_posts = json_decode(
             Posts::where('enable', 0)
                 ->with('post_user')
-                // ->where('user_id', $auth_id)
+                ->where('user_id', $auth_id)
                 ->with('post_check')
                 ->get()
         );

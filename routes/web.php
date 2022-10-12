@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/auth', "App\Http\Controllers\AuthController@auth");
+//Route::get('/auth', "App\Http\Controllers\AuthController@auth");
 Auth::routes();
 
 // Route::get('/', function () {

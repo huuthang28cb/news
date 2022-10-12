@@ -30,10 +30,18 @@
                         data-toggle="dropdown" aria-expanded="false">
                         @if (Auth::user()->user_type == 1)
                             <i class="fa fa-bell"></i>
-                            <span class="badge bg-red">{{ count($post_disable) }}</span>
+                            @foreach ($post_disable as $disable)
+                                @if ($disable->post_check->description_check == null)
+                                    <span class="badge bg-red">{{ count($post_disable) }}</span>
+                                @endif
+                            @endforeach
                         @else
                             <i class="fa fa-bell"></i>
-                            <span class="badge bg-red">{{ count($checked_posts) }}</span>
+                            @foreach ($checked_posts as $disable)
+                                @if ($disable->post_check->description_check != null)
+                                    <span class="badge bg-red">{{ count($checked_posts) }}</span>
+                                @endif
+                            @endforeach
                         @endif
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">

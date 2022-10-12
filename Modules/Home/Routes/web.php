@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('dashboard')->group(function() {
+Route::prefix('dashboard')->middleware('checkLogin')->group(function() {
     Route::get('/', [
         'as' => 'dashboard.index',
         'uses' => 'HomeController@index',
     ]);
+    //->middleware('checklogin')
 });

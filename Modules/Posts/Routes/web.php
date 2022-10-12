@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('posts')->group(function() {
+Route::prefix('posts')->middleware('checkLogin')->group(function() {
     Route::get('/', [
         'as' => 'posts.index',
         'uses' => 'PostsController@index',
