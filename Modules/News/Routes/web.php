@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('news')->group(function() {
+Route::prefix('/')->group(function() {
     Route::get('/', [
         'as' => 'news.index',
         'uses' => 'NewsController@index',

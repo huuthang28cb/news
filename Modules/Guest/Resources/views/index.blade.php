@@ -85,7 +85,7 @@
                         
                         <td>
                             <a
-                                href="{{ route('posts.edit', ['id'=>$posts_items->id]) }}"
+                                href="{{ route('posts.check', ['id'=>$posts_items->id]) }}"
                                 class="btn btn-primary "><i class="fa fa-edit"></i></a>
                             <a
                                 href="{{ route('posts.destroy', ['id'=>$posts_items->id]) }}"

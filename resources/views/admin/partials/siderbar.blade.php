@@ -1,6 +1,6 @@
 
 <div class="navbar nav_title" style="border: 0;">
-    <a href="/news" class="site_title"><i class="fa fa-paw"></i> <span>Home Page</span></a>
+    <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>Home Page</span></a>
 </div>
 
 <div class="clearfix"></div>

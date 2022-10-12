@@ -39,7 +39,7 @@ Route::prefix('/auth')->group(function () {
     });
 
     // NEWS ROUTE
-    Route::prefix('news')->group(function () {
+    Route::prefix('')->group(function () {
     });
 
     // HOME ROUTE

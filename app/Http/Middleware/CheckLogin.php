@@ -16,8 +16,11 @@ class CheckLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        //dd(auth()->check());
+        //dd(Auth()->user()->user_type);
         if(auth()->check()){  // if return true
+            // if(Auth()->user()->user_type == 0){
+            //     return dd('404');
+            // }
             return $next($request);
         }
         else{
