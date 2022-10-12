@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class ComposerProvider extends ServiceProvider
+class ClientHeaderServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -23,14 +23,14 @@ class ComposerProvider extends ServiceProvider
      */
     public function boot()
     {
-        // dd('hfglkit');
+        //dd('hihis');
         view()->composer(
             [
-                'resources\views\admin\partials\header.blade.php',
+                //'client.partials.header',
                 //...more
                 // '*' :view name - all views
             ],
-            "Modules\Home\Http\ViewComposers\PostComposers", // class name 
+            "Modules\Home\Http\ViewComposer\HeaderComposer", // class name
         );
     }
 }

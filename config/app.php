@@ -182,7 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
-        App\Providers\ComposerProvider::class,
+        
         
 
 
@@ -202,6 +202,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
+        App\Providers\ClientHeaderServiceProvider::class,
 
     ],
 
