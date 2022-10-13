@@ -17,31 +17,42 @@ class CategoryComposer
     public function compose(View $view)
     {
         // get all category
-        $auth_id = Auth::user()->id;
         $data_Categories = json_decode($this->categories->with('topics')->get());
         $post_disable = json_decode(Posts::where('enable', 0)->with('post_user')->with('post_check')->get());
         //dd($post_disable);
-        $checked_posts = json_decode(
-            Posts::where('enable', 0)
-                ->with('post_user')
-                ->where('user_id', $auth_id)
-                ->with('post_check')
-                ->get()
-        );
-        // foreach($checked_posts as $t){
-        //     $g = array_merge($t['post_user'], $t['post_check']);
-        // }
-        //dd($checked_posts);
+        if(auth()->check()){
+            // get day
+            $date = date('Y-m-d H:i:s');
 
-        // get topic
-
-        // get day
-        $date = date('Y-m-d H:i:s');
-
-        //dd($data_Categories);
-        $view->with('data_Categories', $data_Categories)
+            $auth_id = Auth::user()->id;
+            $checked_posts = json_decode(
+                Posts::where('enable', 0)
+                    ->with('post_user')
+                    ->where('user_id', $auth_id)
+                    ->with('post_check')
+                    ->get()
+            );
+            $view->with('data_Categories', $data_Categories)
             ->with('date', $date)
             ->with('post_disable', $post_disable)
             ->with('checked_posts', $checked_posts);
+        }
+        else{
+            // get day
+            $date = date('Y-m-d H:i:s');
+
+            //dd($data_Categories);
+            $view->with('data_Categories', $data_Categories)
+                ->with('date', $date)
+                ->with('post_disable', $post_disable);
+                // ->with('checked_posts', $checked_posts);
+        }
+
+
+        // //dd($data_Categories);
+        // $view->with('data_Categories', $data_Categories)
+        //     ->with('date', $date)
+        //     ->with('post_disable', $post_disable)
+        //     ->with('checked_posts', $checked_posts);
     }
 }
