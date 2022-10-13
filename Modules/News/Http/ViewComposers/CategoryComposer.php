@@ -5,7 +5,7 @@ namespace Modules\News\Http\ViewComposers;
 use Illuminate\View\View;
 use app\Models\Categories;
 use App\Models\Posts;
-use \Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryComposer
 {
