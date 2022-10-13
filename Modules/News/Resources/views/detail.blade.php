@@ -47,10 +47,10 @@
                             <button type="submit" class="btn-danger mt-3">Send</button>
                         </form>
                         <h4 class="mt-5">Comments orthers</h4>
-                        @if ($comments_data->comment == [])
+                        @if ($comments_data == [])
                             <p>This post has no comments yet...</p>
                         @else
-                            @foreach ($comments_data->comment as $comment)
+                            @foreach ($comments_data as $comment)
                                 <div class="comment-list">
                                     <div class="single-comment justify-content-between d-flex">
                                         <div class="user justify-content-between d-flex">
@@ -61,7 +61,7 @@
                                                 <div class="d-flex justify-content-between">
                                                     <div class="d-flex align-items-center">
                                                         <h5 class="text-primary">
-                                                            {{ $comments_data->post_user->name }}
+                                                            {{ $comment->user->name }}
                                                         </h5>
                                                         <div class="ml-2">
                                                             @if ($comment->ranking == 5)

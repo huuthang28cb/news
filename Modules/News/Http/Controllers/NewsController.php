@@ -102,23 +102,23 @@ class NewsController extends Controller
             );
         }
         //dd($post); */
-        
+
         //count views with ip
         $ip_client = '45.225.123.24';
         $post_id = json_decode($this->posts->where('slug', $slug)->first()->id);
         $ip_data = geoip()->getLocation($ip_client);
-        
+
         $post = PostViews::Create(
             [
-                'post_id'=> $post_id,
-                'ip_adress'=>$ip_client,
-                'country'=>$ip_data->country,
-                'city'=>$ip_data->city,
+                'post_id' => $post_id,
+                'ip_adress' => $ip_client,
+                'country' => $ip_data->country,
+                'city' => $ip_data->city,
             ]
         );
 
         // get all comments
-        $comments_data = json_decode($this->posts->with('comment')->with('post_user')->where('slug', $slug)->first());
+        $comments_data = json_decode($this->comments->with('post')->with('user')->where('post_id', $post_id)->get());
         //dd($comments_data);
         return view('news::detail', compact('detail', 'posts_data', 'comments_data'));
     }
@@ -152,17 +152,17 @@ class NewsController extends Controller
     {
         // get slug previous url
         $url = str_replace(url('/'), '', url()->previous());
-        $slugs = explode ("/", $url);
-        $latestslug = $slugs [(count ($slugs) - 1)];
-        
+        $slugs = explode("/", $url);
+        $latestslug = $slugs[(count($slugs) - 1)];
+
         // get id post with slug
         $post = json_decode($this->posts->where('slug', $latestslug)->first());
 
         $dataComment = [
-            'post_id'=>$post->id,
-            'user_id'=>Auth()->user()->id,
-            'comment'=>$request->comment,
-            'ranking'=>5
+            'post_id' => $post->id,
+            'user_id' => Auth()->user()->id,
+            'comment' => $request->comment,
+            'ranking' => 5
         ];
 
         // save into database
