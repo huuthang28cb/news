@@ -101,7 +101,7 @@
                                                                 <span class="fa fa-star"></span>
                                                                 <span class="fa fa-star"></span>
                                                             @endif
-                                                            <span class="fa fa-star"></span>
+                                                            
                                                         </div>
                                                         <p class="date">{{ date('d-m-Y', strtotime($comment->created_at)) }} </p>
                                                     </div>
