@@ -34,20 +34,14 @@ class GuestController extends Controller
         return view('guest::index', compact('dataPosts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
+    public function list_check()
     {
-        return view('guest::create');
+        $auth_id = Auth::user()->id;
+        $dataPost = json_decode($this->posts->with('post_user')->with('post_check')->where('user_id', $auth_id)->orderBy('id','desc')->get());
+        //dd($dataPost);
+        return view('guest::listcheck', compact('dataPost'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
     public function store(Request $request)
     {
         //

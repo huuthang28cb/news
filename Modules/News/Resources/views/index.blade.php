@@ -193,7 +193,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews1.jpg" alt="">
+                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -205,7 +205,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews2.jpg" alt="">
+                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -217,7 +217,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews3.jpg" alt="">
+                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -229,7 +229,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews4.jpg" alt="">
+                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -249,7 +249,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews1.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -261,7 +261,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews2.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -273,7 +273,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews3.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -285,7 +285,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews4.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -305,7 +305,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews1.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -317,7 +317,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews2.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -329,7 +329,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews3.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -341,7 +341,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews4.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -361,7 +361,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews1.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -373,7 +373,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews2.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -385,7 +385,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews3.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -397,7 +397,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews4.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -417,7 +417,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews1.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -429,7 +429,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews2.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -441,7 +441,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews3.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -453,7 +453,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews4.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -473,7 +473,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews1.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -485,7 +485,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews2.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -497,7 +497,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/assets/img/news/whatNews3.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -509,7 +509,7 @@
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="news_templates/   assets/img/news/whatNews4.jpg" alt="">
+                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                                     </div>
                                                     <div class="what-cap">
                                                         <span class="color1">Night party</span>
@@ -536,7 +536,7 @@
                         <div class="single-box">
                             <div class="follow-us d-flex align-items-center">
                                 <div class="follow-social">
-                                    <a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
+                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
                                 </div>
                                 <div class="follow-count">
                                     <span>8,045</span>
@@ -545,7 +545,7 @@
                             </div>
                             <div class="follow-us d-flex align-items-center">
                                 <div class="follow-social">
-                                    <a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a>
+                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
                                 </div>
                                 <div class="follow-count">
                                     <span>8,045</span>
@@ -554,7 +554,7 @@
                             </div>
                             <div class="follow-us d-flex align-items-center">
                                 <div class="follow-social">
-                                    <a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a>
+                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
                                 </div>
                                 <div class="follow-count">
                                     <span>8,045</span>
@@ -563,7 +563,7 @@
                             </div>
                             <div class="follow-us d-flex align-items-center">
                                 <div class="follow-social">
-                                    <a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a>
+                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
                                 </div>
                                 <div class="follow-count">
                                     <span>8,045</span>
@@ -574,7 +574,7 @@
                     </div>
                     <!-- New Poster -->
                     <div class="news-poster d-none d-lg-block">
-                        <img src="assets/img/news/news_card.jpg" alt="">
+                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -598,7 +598,7 @@
                         <div class="weekly2-news-active dot-style d-flex dot-style">
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="assets/img/news/weekly2News1.jpg" alt="">
+                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Corporate</span>
@@ -608,7 +608,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="assets/img/news/weekly2News2.jpg" alt="">
+                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Event night</span>
@@ -618,7 +618,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="assets/img/news/weekly2News3.jpg" alt="">
+                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Corporate</span>
@@ -628,7 +628,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="assets/img/news/weekly2News4.jpg" alt="">
+                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Event time</span>
@@ -638,7 +638,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="assets/img/news/weekly2News4.jpg" alt="">
+                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Corporate</span>

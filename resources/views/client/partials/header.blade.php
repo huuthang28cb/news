@@ -8,8 +8,8 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left">
                                 <ul>
-                                    <li><img src="assets/img/icon/header_icon1.png" alt="">34ºc, Sunny </li>
-                                    <li><img src="assets/img/icon/header_icon1.png" alt="">{{$date}}
+                                    <li><img src="" alt="">34ºc, Sunny </li>
+                                    <li><img src="" alt="">{{$date}}
                                     </li>
                                 </ul>
                             </div>
@@ -92,7 +92,7 @@
                         <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                             <!-- sticky -->
                             <div class="sticky-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="" alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-md-block">

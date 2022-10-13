@@ -8,7 +8,7 @@
                         <div class="single-footer-caption">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                <a href="index.html"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
@@ -61,12 +61,12 @@
                         </div>
                         <div class="instagram-gellay">
                             <ul class="insta-feed">
-                                <li><a href="#"><img src="assets/img/post/instra1.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/post/instra2.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/post/instra3.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/post/instra4.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/post/instra5.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/post/instra6.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
                             </ul>
                         </div>
                     </div>

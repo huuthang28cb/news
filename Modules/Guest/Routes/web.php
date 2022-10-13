@@ -16,4 +16,8 @@ Route::prefix('guest')->middleware('checkLogin')->group(function() {
         'as' => 'guest.index',
         'uses' => 'GuestController@index',
     ]);
+    Route::get('/list_check', [
+        'as' => 'guest.list_check',
+        'uses' => 'GuestController@list_check',
+    ]);
 });

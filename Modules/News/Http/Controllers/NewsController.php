@@ -3,6 +3,7 @@
 namespace Modules\News\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Comments;
 use App\Models\Posts;
 use App\Models\PostViews;
 use App\Models\Topics;
@@ -18,13 +19,16 @@ class NewsController extends Controller
     private $categories;
     private $posts;
     private $post_views;
+    private $comments;
+    public $slug_detail;
 
-    public function __construct(Topics $topics, Posts $posts, Categories $categories, PostViews $post_views)
+    public function __construct(Topics $topics, Posts $posts, Categories $categories, PostViews $post_views, Comments $comments)
     {
         $this->topics = $topics;
         $this->posts = $posts;
         $this->categories = $categories;
         $this->post_views = $post_views;
+        $this->comments = $comments;
     }
     public function index()
     {
@@ -56,9 +60,10 @@ class NewsController extends Controller
     }
 
 
-    public function detail($slug)
+    public function detail($slug, Request $request)
     {
-        //$this->posts->postviews()->attach($tagIds);
+        $slug_detail = $slug;
+
         $posts_data = $this->posts->latest()->skip(0)->take(10)->get(); //get first 5 rows and latest
         $detail = json_decode($this->posts->with('topics')->where('slug', $slug)->first());
 
@@ -112,9 +117,10 @@ class NewsController extends Controller
             ]
         );
 
-        
-
-        return view('news::detail', compact('detail', 'posts_data'));
+        // get all comments
+        $comments_data = json_decode($this->posts->with('comment')->with('post_user')->where('slug', $slug)->first());
+        //dd($comments_data);
+        return view('news::detail', compact('detail', 'posts_data', 'comments_data'));
     }
 
 
@@ -142,9 +148,28 @@ class NewsController extends Controller
     }
 
 
-    public function edit($id)
+    public function comment(Request $request)
     {
-        return view('news::edit');
+        // get slug previous url
+        $url = str_replace(url('/'), '', url()->previous());
+        $slugs = explode ("/", $url);
+        $latestslug = $slugs [(count ($slugs) - 1)];
+        
+        // get id post with slug
+        $post = json_decode($this->posts->where('slug', $latestslug)->first());
+
+        $dataComment = [
+            'post_id'=>$post->id,
+            'user_id'=>Auth()->user()->id,
+            'comment'=>$request->comment,
+            'ranking'=>5
+        ];
+
+        // save into database
+        $this->comments->create($dataComment);
+        //dd($dataComment);
+
+        return redirect()->back();
     }
 
 

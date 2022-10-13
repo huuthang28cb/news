@@ -33,4 +33,7 @@ class Posts extends Model
         return $this->hasOne(CheckPosts::class, 'post_id');
     }
 
+    public function comment(){
+        return $this->hasMany(Comments::class, 'post_id');
+    }
 }

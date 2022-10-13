@@ -30,6 +30,12 @@
                     </i> List post</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('guest.list_check') }}" class="nav-link">
+                    <i class="fa fa-list">
+                    </i> List check</span>
+                </a>
+            </li>
         
         </ul>
     </div>

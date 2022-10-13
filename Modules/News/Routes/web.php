@@ -28,4 +28,8 @@ Route::prefix('/')->group(function() {
         'as' => 'news.topics',
         'uses' => 'NewsController@topics',
     ]);
+    Route::post('comment', [
+        'as' => 'news.comment',
+        'uses' => 'NewsController@comment',
+    ]);
 });
