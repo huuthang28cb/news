@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Comments;
 use App\Models\Posts;
 use App\Models\PostViews;
+use App\Models\Replys;
 use App\Models\Topics;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -21,14 +22,22 @@ class NewsController extends Controller
     private $post_views;
     private $comments;
     public $slug_detail;
+    private $replys;
 
-    public function __construct(Topics $topics, Posts $posts, Categories $categories, PostViews $post_views, Comments $comments)
+    public function __construct(
+        Topics $topics, 
+        Posts $posts, 
+        Categories $categories, 
+        PostViews $post_views, 
+        Comments $comments,
+        Replys $replys)
     {
         $this->topics = $topics;
         $this->posts = $posts;
         $this->categories = $categories;
         $this->post_views = $post_views;
         $this->comments = $comments;
+        $this->replys = $replys;
     }
     public function index()
     {
@@ -50,12 +59,21 @@ class NewsController extends Controller
         $posts_data = json_decode($this->posts->with('post_view')->where('enable', 1)->latest()->skip(0)->take(5)->get()); //get first 5 rows and latest
         //dd($posts_data);
         //dd(json_decode($posts_data));
+
+        // get post follow topic
+        $data_content = json_decode($this->categories->with('postss')->with('topics')->get());
+        //dd($data_content);
+
+        // get 50 post
+        $posts_50data = json_decode($this->posts->with('post_view')->where('enable', 1)->skip(0)->take(10)->get());
         return view('news::index', compact(
             'posts_data',
             'first_post',
             'tech',
             'ent',
-            'new'
+            'new',
+            'data_content',
+            'posts_50data'
         ));
     }
 
@@ -118,8 +136,13 @@ class NewsController extends Controller
         );
 
         // get all comments
-        $comments_data = json_decode($this->comments->with('post')->with('user')->where('post_id', $post_id)->get());
+        $comments_data = json_decode($this->comments->with('post')->with('user')->with('reply')->where('post_id', $post_id)->get());
         //dd($comments_data);
+
+        // get replys
+        //$data_replys = json_decode($this->replys->with('comment')->with('user')->get());
+        //dd($data_replys);
+
         return view('news::detail', compact('detail', 'posts_data', 'comments_data'));
     }
 
@@ -133,7 +156,7 @@ class NewsController extends Controller
     }
 
 
-    public function topics($slug)
+    public function topic($slug)
     {
         $list_topic = json_decode($this->topics->with('categories')->where('slug', $slug)->first()); // list các topic theo slug
         $name = $list_topic->categories; // get name of categories
@@ -173,9 +196,16 @@ class NewsController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function reply($id, Request $request)
     {
-        //
+        $data_reply = [
+            'user_id' => Auth()->user()->id,
+            'comment_id' => $id,
+            'message'=>$request->message
+        ];
+        $this->replys->create($data_reply);
+        // dd($data_reply);
+        return redirect()->back();
     }
 
 

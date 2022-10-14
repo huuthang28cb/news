@@ -8,7 +8,7 @@
                         <div class="single-footer-caption">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
+                                <a href="index.html"><img src="" alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
@@ -61,12 +61,12 @@
                         </div>
                         <div class="instagram-gellay">
                             <ul class="insta-feed">
-                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="" alt=""></a></li>
+                                <li><a href="#"><img src="" alt=""></a></li>
+                                <li><a href="#"><img src="" alt=""></a></li>
+                                <li><a href="#"><img src="" alt=""></a></li>
+                                <li><a href="#"><img src="" alt=""></a></li>
+                                <li><a href="#"><img src="" alt=""></a></li>
                             </ul>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 @extends('client.layouts.client')
 @section('title')
-    <title>Trang chủ 2233</title>
+    <title>News -Trang chủ</title>
+    </style>
 @endsection
 @section('content')
 <main>
@@ -120,8 +121,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="weekly-news-active dot-style d-flex dot-style">
-                            @foreach($posts_data as $post)
-                            {
+                            @foreach($posts_data as $post)                      
                                 <div class="weekly-single">
                                     <div class="weekly-img">
                                         <img src="{{$post->feature_image_path}}" alt="">
@@ -131,7 +131,6 @@
                                         <h4><a href="#">{{$post->title}}</a></h4>
                                     </div>
                                 </div>
-                            }
                             @endforeach
                             
                         </div>
@@ -142,14 +141,16 @@
     </div>
     <!-- End Weekly-News -->
     <!-- Whats New Start -->
+    
     <section class="whats-news-area pt-50 pb-20">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
+                    @foreach ($data_content as $da)
                     <div class="row d-flex justify-content-between">
                         <div class="col-lg-3 col-md-3">
                             <div class="section-tittle mb-30">
-                                <h3>Whats New</h3>
+                                <h3>{{ $da->name }}</h3>
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9">
@@ -157,24 +158,11 @@
                                 <!--Nav Button  -->
                                 <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
-                                            href="#nav-home" role="tab" aria-controls="nav-home"
-                                            aria-selected="true">All</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                        @foreach ($da->topics as $to)
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
                                             href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                            aria-selected="false">Lifestyle</a>
-                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
-                                            href="#nav-contact" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Travel</a>
-                                        <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab"
-                                            href="#nav-last" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Fashion</a>
-                                        <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab"
-                                            href="#nav-nav-Sport" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Sports</a>
-                                        <a class="nav-item nav-link" id="nav-technology" data-toggle="tab"
-                                            href="#nav-techno" role="tab" aria-controls="nav-contact"
-                                            aria-selected="false">Technology</a>
+                                            aria-selected="false">{{ $to->name }}</a>
+                                        @endforeach
                                     </div>
                                 </nav>
                                 <!--End Nav Button  -->
@@ -190,397 +178,69 @@
                                     aria-labelledby="nav-home-tab">
                                     <div class="whats-news-caption">
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
+                                            @foreach ($da->postss as $po)
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="single-what-news mb-100">
+                                                        <div class="">
+                                                            <img width="300px" height="200px" src="{{ $po->feature_image_path }}" alt="">
+                                                        </div>
+                                                        <div class="what-cap">
+                                                            <h4><a href="#">{{ $po->title }}</a>
+                                                            </h4>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://phunugioi.com/wp-content/uploads/2020/01/anh-avatar-supreme-dep-lam-dai-dien-facebook.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Card two -->
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    <div class="whats-news-caption">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card three -->
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-                                    <div class="whats-news-caption">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- card fure -->
-                                <div class="tab-pane fade" id="nav-last" role="tabpanel"
-                                    aria-labelledby="nav-last-tab">
-                                    <div class="whats-news-caption">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- card Five -->
-                                <div class="tab-pane fade" id="nav-nav-Sport" role="tabpanel"
-                                    aria-labelledby="nav-Sports">
-                                    <div class="whats-news-caption">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- card Six -->
-                                <div class="tab-pane fade" id="nav-techno" role="tabpanel"
-                                    aria-labelledby="nav-technology">
-                                    <div class="whats-news-caption">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="single-what-news mb-100">
-                                                    <div class="what-img">
-                                                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                                                    </div>
-                                                    <div class="what-cap">
-                                                        <span class="color1">Night party</span>
-                                                        <h4><a href="#">Welcome To The Best Model Winner Contest</a>
-                                                        </h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <!-- End Nav Card -->
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <div class="col-lg-4">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle mb-40">
-                        <h3>Follow Us</h3>
-                    </div>
-                    <!-- Flow Socail -->
-                    <div class="single-follow mb-45">
-                        <div class="single-box">
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
+                    @foreach ($posts_50data as $f)
+                    <div class="section-top-border">
+                        <h6 class="mb-30">{{ $f->title }}</h6>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <img src="{{ $f->feature_image_path }}" alt="" class="img-fluid">
                             </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
-                            </div>
-                            <div class="follow-us d-flex align-items-center">
-                                <div class="follow-social">
-                                    <a href="#"><img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt=""></a>
-                                </div>
-                                <div class="follow-count">
-                                    <span>8,045</span>
-                                    <p>Fans</p>
-                                </div>
+                            <div class="col-md-7 mt-sm-20r">
+                                <p class="text-dark">{{ $f->description }}</p>
                             </div>
                         </div>
                     </div>
-                    <!-- New Poster -->
-                    <div class="news-poster d-none d-lg-block">
-                        <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
-                    </div>
+                        {{-- <div class="trand-right-single d-flex">
+                            <h6><a href="{{ route('news.detail', ['slug'=>$f->slug])}}">{{$f->title}}</a></h6>
+                            
+                            <div class="trand-right-cap">
+                                <div class="trand-right-img">
+                                    <img height="100" width="100" src="{{$f->feature_image_path}}" alt="">
+                                </div>
+                                <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                                    {{ $f->description }}
+                                </span>
+                            </div>
+                        </div>
+                        <hr class="g"> --}}
+                    @endforeach
+                    <!-- Section Tittle -->
+                    
+                    
+                    
                 </div>
+                
             </div>
+            
         </div>
     </section>
     <!-- Whats New End -->
+    
+    
     <!--   Weekly2-News start -->
     <div class="weekly2-news-area  weekly2-pading gray-bg">
         <div class="container">
@@ -598,7 +258,7 @@
                         <div class="weekly2-news-active dot-style d-flex dot-style">
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Corporate</span>
@@ -608,7 +268,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Event night</span>
@@ -618,7 +278,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Corporate</span>
@@ -628,7 +288,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Event time</span>
@@ -638,7 +298,7 @@
                             </div>
                             <div class="weekly2-single">
                                 <div class="weekly2-img">
-                                    <img src="https://png.pngtree.com/element_our/png_detail/20181228/avatar-icon-design-vector-png_296561.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div class="weekly2-caption">
                                     <span class="color1">Corporate</span>

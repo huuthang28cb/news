@@ -24,12 +24,16 @@ Route::prefix('/')->group(function() {
         'as' => 'news.categories',
         'uses' => 'NewsController@categories',
     ]);
-    Route::get('topics/{slug}', [
+    Route::get('topic/{slug}', [
         'as' => 'news.topics',
-        'uses' => 'NewsController@topics',
+        'uses' => 'NewsController@topic',
     ]);
     Route::post('comment', [
         'as' => 'news.comment',
         'uses' => 'NewsController@comment',
+    ]);
+    Route::post('reply/{id}', [
+        'as' => 'news.reply',
+        'uses' => 'NewsController@reply',
     ]);
 });

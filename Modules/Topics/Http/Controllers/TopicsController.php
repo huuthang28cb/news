@@ -40,7 +40,7 @@ class TopicsController extends Controller
     
     public function create()
     {
-        // dd('xin chao');
+        //dd('xin chao');
         $htmlSelect = $this->getCategories($categoriesId = '');
         return view('topics::create', compact('htmlSelect'));
     }
