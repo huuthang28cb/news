@@ -91,6 +91,7 @@
                     </div>
                     <div class="comments-area">
                         <h3>Write Comment</h3>
+                        @if (auth()->check())
                         <div class="card bg-light text-dark">
                             <form method="POST" action="{{ route('news.comment') }}">
                                 @csrf
@@ -142,6 +143,10 @@
                                 <button type="submit" class="btn btn-danger mt-3">Send comment</button>
                             </form>
                         </div>
+                        @else
+                            <p class="text-danger">Must be logged in before commenting!</p>
+                        @endif
+                        
 
                         <h4 class="mt-5">Comments orthers</h4>
                         @if ($comments_data == [])
@@ -211,11 +216,14 @@
                                         <p class="comment text-dark">
                                             {{ $comment->comment }}
                                         </p>
+                                        @if (auth()->check())
                                         <button id="reply-button"
                                             onclick="showReplyForm('{{$comment->id}}', '{{ $comment->user->name }}')"
                                             class="border-0 bg-transparent">
                                             <h5><i class="fa fa-reply"></i> Reply</h5>
                                         </button>
+                                        @endif
+                                        
                                         {{-- form rep --}}
                                         <div class="row flex-row d-flex">
                                             <form action="{{ route('news.reply', ['id'=>$comment->id]) }}" method="post"
@@ -229,10 +237,11 @@
                                         </div>
                                         {{-- data rep --}}
                                         
-                                        @foreach ($comment->reply as $rep)
+                                        
+                                        @foreach ($data_replys as $rep)
                                         {{-- <h5>{{ $rep->user_id }}</h5>
                                         <h5>{{ $comment->user->id }}</h5> --}}
-                                            {{-- @if ($rep->user_id != $comment->user->id) --}}
+                                            @if ($rep->comment_id == $comment->id)
                                             <div class="mt-2">
                                                 <div class="comment-list">
                                                     <div class="single-comment justify-content-between d-flex">
@@ -245,7 +254,7 @@
                                                                 <div class="d-flex justify-content-between">
                                                                     <div class="d-flex align-items-center">
                                                                         <h5>
-                                                                            {{ $rep->id }}
+                                                                            {{ $rep->user->name }}
                                                                         </h5>                                                                        
                                                                     </div>                                                              
                                                                 </div>
@@ -258,7 +267,7 @@
                                                 </div>
                                                 
                                             </div>
-                                            {{-- @endif --}}
+                                            @endif
                                         @endforeach
                                         
                                         

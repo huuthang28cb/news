@@ -140,10 +140,10 @@ class NewsController extends Controller
         //dd($comments_data);
 
         // get replys
-        //$data_replys = json_decode($this->replys->with('comment')->with('user')->get());
+        $data_replys = json_decode($this->replys->with('comment')->with('user')->get());
         //dd($data_replys);
 
-        return view('news::detail', compact('detail', 'posts_data', 'comments_data'));
+        return view('news::detail', compact('detail', 'posts_data', 'comments_data', 'data_replys'));
     }
 
 
@@ -189,8 +189,8 @@ class NewsController extends Controller
         ];
 
         // save into database
-        //$this->comments->create($dataComment);
-        dd($dataComment);
+        $this->comments->create($dataComment);
+        //dd($dataComment);
 
         return redirect()->back();
     }
