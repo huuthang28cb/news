@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('news_templates/assets/css/style.css') }}">
+    {{-- rating --}}
+    
 
 </head>
 
@@ -137,6 +139,7 @@
         });
 
     </script>
+    
 
 </body>
 

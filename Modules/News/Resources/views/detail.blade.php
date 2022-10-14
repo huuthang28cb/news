@@ -1,6 +1,10 @@
 @extends('client.layouts.client')
 @section('title')
 <title>Detail</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 @section('content')
 <main>
@@ -8,7 +12,58 @@
         .checked {
             color: orange;
         }
-        </style>
+        div.stars {
+
+        width: 270px;
+
+        display: inline-block;
+
+        }
+        .mt-200{
+        margin-top:200px;  
+        }
+
+        input.star { display: none; }
+        label.star {
+
+        float: right;
+
+        padding: 10px;
+
+        font-size: 36px;
+
+        color: #FD4;
+
+        transition: all .2s;
+
+        }
+
+        input.star:checked ~ label.star:before {
+
+        content: '\f005';
+
+        color: #FD4;
+
+        transition: all .25s;
+
+        }
+        input.star-5:checked ~ label.star:before {
+
+        color: #FE7;
+
+        text-shadow: 0 0 20px #952;
+
+        }
+        input.star-1:checked ~ label.star:before { color: #F62; }
+        label.star:hover { transform: rotate(-15deg) scale(1.3); }
+        label.star:before {
+
+        content: '\f006';
+
+        font-family: FontAwesome;
+
+        }
+    </style>
     <!-- About US Start -->
     <div class="about-area">
         <div class="container">
@@ -41,11 +96,56 @@
                     </div>
                     <div class="comments-area">
                         <h3>Write Comment</h3>
-                        <form method="POST" action="{{ route('news.comment') }}">
-                            @csrf
-                            <input type="text" name="comment" class="container" size="80" placeholder="✍️ Write comment for you..."></input>
-                            <button type="submit" class="btn-danger mt-3">Send</button>
-                        </form>
+                        <div class="card bg-light text-dark">
+                            <form method="POST" action="{{ route('news.comment') }}">
+                                @csrf
+                                {{-- rating --}}
+                                <input class="star star-5 form-control @error('ranking') is-invalid @enderror" id="star-5" type="radio" value="5" name="ranking"/>
+                                
+                                <label class="star star-5" for="star-5"></label>
+    
+                                <input class="star star-4 form-control @error('ranking') is-invalid @enderror" id="star-4" type="radio" value="4" name="ranking"/>
+    
+                                <label class="star star-4" for="star-4"></label>
+    
+                                <input class="star star-3 form-control @error('ranking') is-invalid @enderror" id="star-3" type="radio" value="3" name="ranking"/>
+    
+                                <label class="star star-3" for="star-3"></label>
+    
+                                <input class="star star-2 form-control @error('ranking') is-invalid @enderror" id="star-2" type="radio" value="2" name="ranking"/>
+    
+                                <label class="star star-2" for="star-2"></label>
+    
+                                <input class="star star-1 form-control @error('ranking') is-invalid @enderror" id="star-1" type="radio" value="1" name="ranking"/>
+    
+                                <label class="star star-1" for="star-1"></label>
+                                {{-- validator --}}
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
+                                    </label>
+                                    @error('ranking')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                {{-- end rating --}}
+                                <input 
+                                    type="text" 
+                                    name="comment" required 
+                                    class="container form-control @error('comment') is-invalid @enderror" 
+                                    value="{{old('comment')}}"
+                                    size="80" placeholder="✍️ Write comment for you...">
+                                </input>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align ml-2"></span>
+                                    </label>
+                                    @error('comment')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <button type="submit" class="btn btn-danger mt-3">Send comment</button>
+                            </form>
+                        </div>
+                        
                         <h4 class="mt-5">Comments orthers</h4>
                         @if ($comments_data == [])
                             <p>This post has no comments yet...</p>
@@ -101,7 +201,7 @@
                                                                 <span class="fa fa-star"></span>
                                                                 <span class="fa fa-star"></span>
                                                             @endif
-                                                            
+                                                            <span class="fa fa-star"></span>
                                                         </div>
                                                         <p class="date">{{ date('d-m-Y', strtotime($comment->created_at)) }} </p>
                                                     </div>

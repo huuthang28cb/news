@@ -11,7 +11,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
-
+use Modules\News\Http\Requests\CommentRequest;
 
 class NewsController extends Controller
 {
@@ -148,7 +148,7 @@ class NewsController extends Controller
     }
 
 
-    public function comment(Request $request)
+    public function comment(CommentRequest $request)
     {
         // get slug previous url
         $url = str_replace(url('/'), '', url()->previous());
@@ -162,12 +162,12 @@ class NewsController extends Controller
             'post_id' => $post->id,
             'user_id' => Auth()->user()->id,
             'comment' => $request->comment,
-            'ranking' => 5
+            'ranking' => $request->ranking
         ];
 
         // save into database
-        $this->comments->create($dataComment);
-        //dd($dataComment);
+        //$this->comments->create($dataComment);
+        dd($dataComment);
 
         return redirect()->back();
     }
